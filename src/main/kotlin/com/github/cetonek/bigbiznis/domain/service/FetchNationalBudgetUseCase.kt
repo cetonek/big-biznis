@@ -18,7 +18,7 @@ class FetchNationalBudgetUseCase(private val budgetBalanceRepository: BudgetBala
     }
 
     @Cacheable("FetchNationalBudgetUseCase::findCurrentPublicDebt")
-    fun findCurrentPublicDebt() : PublicDebtEntity = publicDebtRepository.findFirstByOrderByYearDesc()
+    fun findCurrentPublicDebt(): PublicDebtEntity = publicDebtRepository.findFirstByOrderByYearDesc()
 
     @Cacheable("FetchNationalBudgetUseCase::fetchBudgetBalance")
     fun fetchBudgetBalance(): List<BudgetBalanceEntity> {

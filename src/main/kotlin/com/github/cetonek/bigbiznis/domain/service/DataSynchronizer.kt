@@ -16,6 +16,7 @@ class DataSynchronizer(private val syncExchange: SynchronizeExchangeRateUseCase,
     companion object {
         // 1.1. 2.1. everyday at midnight
         const val EVERYDAY_AT_MIDNIGHT = "0 0 0 ? * *"
+
         // 1.1.2020, 1.2.2020 ... every first day of the month at midnight
         const val EVERY_FIRST_DAY_OF_MONTH = "0 0 0 1 * ?"
     }
@@ -36,7 +37,7 @@ class DataSynchronizer(private val syncExchange: SynchronizeExchangeRateUseCase,
     @Scheduled(cron = EVERYDAY_AT_MIDNIGHT)
     fun dailyUnemploymentRateSync() = syncUnemployment.execute().also { evictCache() }
 
-//    @ExecuteAfterStart
+    //    @ExecuteAfterStart
     @Scheduled(cron = EVERYDAY_AT_MIDNIGHT)
     fun dailyRealGdpSync() = syncRealGdp.execute().also { evictCache() }
 

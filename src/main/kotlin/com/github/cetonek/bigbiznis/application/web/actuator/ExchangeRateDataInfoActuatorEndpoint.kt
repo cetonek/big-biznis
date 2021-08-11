@@ -10,13 +10,13 @@ import java.time.LocalDate
 
 @Component
 @Endpoint(id = "exchangeRateData")
-class ExchangeRateDataInfoActuatorEndpoint (private val repository: ExchangeRateRepository,
-                                            private val config: ExchangeRateConfiguration
+class ExchangeRateDataInfoActuatorEndpoint(private val repository: ExchangeRateRepository,
+                                           private val config: ExchangeRateConfiguration
 ) {
 
 
     @ReadOperation
-    fun getInfo() : ExchangeRateDataInfo {
+    fun getInfo(): ExchangeRateDataInfo {
         val totalRows = repository.count()
         val daysWithMissingRates = repository.findAllWeekdaysThatAreMissing(config.largeSyncStartingDate)
                 .size

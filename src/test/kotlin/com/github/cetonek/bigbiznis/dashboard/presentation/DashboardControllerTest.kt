@@ -37,8 +37,8 @@ class DashboardControllerTest {
     val unemp = listOf(UnemploymentRatePerYearAvg(2015, unemploymentRatePercent = 5.7))
 
     val inflation = listOf(
-        InflationRateEntity(month = 12, year = 2015, type = InflationType.THIS_YEAR_VS_LAST_YEAR,
-            valuePercent = 5f)
+            InflationRateEntity(month = 12, year = 2015, type = InflationType.THIS_YEAR_VS_LAST_YEAR,
+                    valuePercent = 5f)
     )
 
     val publicDebt = listOf(PublicDebtEntity(year = 2015, millionsCrowns = 1564654))

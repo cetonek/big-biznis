@@ -15,6 +15,6 @@ class EconomyRestController(private val fetchExchangeUseCase: FetchExchangeRateU
         return ExchangeRatesResponse(fetchExchangeUseCase.fetchLatestRates())
     }
 
-    data class ExchangeRatesResponse (val rates: Collection<ExchangeRate>)
+    data class ExchangeRatesResponse(val rates: Collection<ExchangeRate>)
 
 }

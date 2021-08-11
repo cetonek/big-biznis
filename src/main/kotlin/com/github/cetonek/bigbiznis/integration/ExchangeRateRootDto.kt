@@ -13,12 +13,15 @@ class ExchangeRateRootDto {
 
     @JacksonXmlProperty(isAttribute = true, localName = "banka")
     lateinit var bankName: String
+
     @JsonFormat
     (shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
     @JacksonXmlProperty(isAttribute = true, localName = "datum")
     lateinit var date: LocalDate
+
     @JacksonXmlProperty(isAttribute = true, localName = "poradi")
     var order: Int = 0
+
     @JacksonXmlProperty(localName = "tabulka")
     lateinit var exchangeRatesTableDto: ExchangeRateTableDto
 
@@ -52,13 +55,17 @@ class ExchangeRateTableDto {
 class ExchangeRateDto {
     @JacksonXmlProperty(isAttribute = true, localName = "kod")
     lateinit var currencyCode: String
+
     @JacksonXmlProperty(isAttribute = true, localName = "mena")
     lateinit var currencyName: String
+
     @JacksonXmlProperty(isAttribute = true, localName = "mnozstvi")
     var amount: Int = 0
+
     @JsonDeserialize(using = WeirdCNBStringToDoubleDeserializer::class)
     @JacksonXmlProperty(isAttribute = true, localName = "kurz")
     var rate: Double = 0.0
+
     @JacksonXmlProperty(isAttribute = true, localName = "zeme")
     lateinit var country: String
 
@@ -69,6 +76,5 @@ class ExchangeRateDto {
 }
 
 fun ExchangeRateDto.toDomain(date: LocalDate): ExchangeRate {
-    return ExchangeRate(date = date, currencyCode = this.currencyCode, currencyName = this.currencyName
-            , amount = this.amount, country = this.country, exchangeRate = this.rate)
+    return ExchangeRate(date = date, currencyCode = this.currencyCode, currencyName = this.currencyName, amount = this.amount, country = this.country, exchangeRate = this.rate)
 }

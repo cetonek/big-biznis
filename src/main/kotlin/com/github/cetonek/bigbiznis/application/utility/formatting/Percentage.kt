@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component
 import java.text.DecimalFormat
 import java.text.NumberFormat
 
-data class Percentage (val value: Double)
+data class Percentage(val value: Double)
 
 @Component
 class PercentageConverter : Converter<Percentage, String> {

@@ -6,8 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-interface SalaryRepository : JpaRepository<SalaryEntity, SalaryKey>  {
+interface SalaryRepository : JpaRepository<SalaryEntity, SalaryKey> {
 
-    fun findFirstByOrderByYearDescQuarterDesc() : SalaryEntity
+    fun findFirstByOrderByYearDescQuarterDesc(): SalaryEntity
 
 }

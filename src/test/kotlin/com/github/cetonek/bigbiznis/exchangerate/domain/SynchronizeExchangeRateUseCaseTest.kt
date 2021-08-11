@@ -23,8 +23,10 @@ class SynchronizeExchangeRateUseCaseTest {
 
     @Mock
     lateinit var cnbClient: CNBClient
+
     @Mock
     lateinit var repository: ExchangeRateRepository
+
     @Mock
     lateinit var configuration: ExchangeRateConfiguration
 

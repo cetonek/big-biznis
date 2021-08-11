@@ -31,9 +31,9 @@ class SalaryControllerTest {
     fun setUp() {
         given(fetchSalary.fetchAll())
                 .willReturn(listOf(
-                    SalaryEntity(quarter = 4,
-                        year = 2018,
-                        salaryCrowns = 35785)
+                        SalaryEntity(quarter = 4,
+                                year = 2018,
+                                salaryCrowns = 35785)
                 ))
     }
 

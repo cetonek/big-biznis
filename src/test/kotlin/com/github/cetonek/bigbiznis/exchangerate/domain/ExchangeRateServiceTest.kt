@@ -18,6 +18,7 @@ class ExchangeRateServiceTest {
 
     @Mock
     lateinit var repository: ExchangeRateRepository
+
     @Mock
     lateinit var synchronizeUseCase: SynchronizeExchangeRateUseCase
 

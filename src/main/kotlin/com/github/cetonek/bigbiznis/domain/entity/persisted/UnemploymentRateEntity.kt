@@ -20,4 +20,4 @@ data class UnemploymentRateKey(
 ) : Serializable
 
 val UnemploymentRateEntity.key
-        get() = UnemploymentRateKey(this.month, this.year)
+    get() = UnemploymentRateKey(this.month, this.year)

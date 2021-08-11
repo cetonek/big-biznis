@@ -12,8 +12,8 @@ interface UnemploymentRateRepository : JpaRepository<UnemploymentRateEntity, Une
 
     @Query("select new com.github.cetonek.bigbiznis.domain.entity.UnemploymentRatePerYearAvg" +
             "(year, avg(unemploymentRatePercent)) from unemployment_rate group by year order by year asc")
-    fun getAllYearlyAveragedUnemploymentRates() : List<UnemploymentRatePerYearAvg>
+    fun getAllYearlyAveragedUnemploymentRates(): List<UnemploymentRatePerYearAvg>
 
-    fun findFirstByOrderByYearDescMonthDesc() : UnemploymentRateEntity
+    fun findFirstByOrderByYearDescMonthDesc(): UnemploymentRateEntity
 
 }

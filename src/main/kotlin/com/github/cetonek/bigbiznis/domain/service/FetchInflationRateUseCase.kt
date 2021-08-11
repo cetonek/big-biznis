@@ -6,7 +6,7 @@ import org.springframework.cache.annotation.Cacheable
 import org.springframework.stereotype.Service
 
 @Service
-class FetchInflationRateUseCase (private val repository: InflationRateRepository) {
+class FetchInflationRateUseCase(private val repository: InflationRateRepository) {
 
     @Cacheable("FetchInflationRateUseCase::fetchAllYearlyInflationRates")
     fun fetchAllYearlyInflationRates() =

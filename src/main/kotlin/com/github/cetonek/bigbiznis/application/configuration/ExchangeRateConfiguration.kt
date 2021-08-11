@@ -10,6 +10,6 @@ import java.time.LocalDate
 class ExchangeRateConfiguration {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    var largeSyncStartingDate: LocalDate = LocalDate.of(1991, 1,1)
+    var largeSyncStartingDate: LocalDate = LocalDate.of(1991, 1, 1)
 
 }

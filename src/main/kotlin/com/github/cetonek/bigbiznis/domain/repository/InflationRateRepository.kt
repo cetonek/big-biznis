@@ -11,8 +11,8 @@ interface InflationRateRepository : JpaRepository<InflationRateEntity, Inflation
 
     fun findAllByTypeAndMonthEquals(type: InflationType, month: Int): List<InflationRateEntity>
 
-    fun findAllByTypeEquals(type: InflationType) : List<InflationRateEntity>
+    fun findAllByTypeEquals(type: InflationType): List<InflationRateEntity>
 
-    fun findFirstByTypeOrderByYearDescMonthDesc(type: InflationType) : InflationRateEntity
+    fun findFirstByTypeOrderByYearDescMonthDesc(type: InflationType): InflationRateEntity
 
 }

@@ -27,7 +27,7 @@ class GrossDomesticProductDto {
 
 }
 
-fun GrossDomesticProductDto.toEntity(type: GrossDomesticProductType) : GrossDomesticProductEntity {
+fun GrossDomesticProductDto.toEntity(type: GrossDomesticProductType): GrossDomesticProductEntity {
     return GrossDomesticProductEntity(
             year = this.date.year,
             quarter = this.date.getQuarter(),

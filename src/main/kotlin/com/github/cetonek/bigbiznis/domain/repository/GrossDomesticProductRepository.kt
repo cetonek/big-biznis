@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository
 @Repository
 interface GrossDomesticProductRepository : JpaRepository<GrossDomesticProductEntity, GrossDomesticProductKey> {
 
-    fun getAllByTypeEquals(type: GrossDomesticProductType) : List<GrossDomesticProductEntity>
+    fun getAllByTypeEquals(type: GrossDomesticProductType): List<GrossDomesticProductEntity>
 
     @Query("select new com.github.cetonek.bigbiznis.domain.entity.GrossDomesticProductByYear " +
             "(year, sum(gdpMillionsCrowns)) from gross_domestic_product where type = ?1 " +

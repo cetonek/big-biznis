@@ -10,6 +10,5 @@ data class MonthAndYear(val month: Int,
 
 @Component
 class MonthAndYearConverter : Converter<MonthAndYear, String> {
-    override fun convert(input: MonthAndYear)
-            = "${Month.of(input.month).translate()} ${input.year}"
+    override fun convert(input: MonthAndYear) = "${Month.of(input.month).translate()} ${input.year}"
 }

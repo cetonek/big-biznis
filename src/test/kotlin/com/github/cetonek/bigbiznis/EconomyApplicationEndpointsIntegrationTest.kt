@@ -24,11 +24,11 @@ class EconomyApplicationEndpointsIntegrationTest {
     lateinit var restTemplate: RestTemplate
 
     @LocalServerPort
-    var serverPort : Int = 0
+    var serverPort: Int = 0
 
     val host = "http://localhost"
 
-    lateinit var baseUrl : String
+    lateinit var baseUrl: String
 
     @BeforeEach
     fun setUp() {

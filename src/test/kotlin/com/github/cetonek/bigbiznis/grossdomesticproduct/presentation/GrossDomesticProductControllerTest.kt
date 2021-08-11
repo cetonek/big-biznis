@@ -32,12 +32,12 @@ class GrossDomesticProductControllerTest {
     lateinit var fetchGdp: FetchGrossDomesticProductUseCase
 
     val realGdp = listOf(
-        GrossDomesticProductEntity(
-            year = 2020,
-            type = REAL_2010_PRICES,
-            gdpMillionsCrowns = 464654,
-            quarter = 3
-    )
+            GrossDomesticProductEntity(
+                    year = 2020,
+                    type = REAL_2010_PRICES,
+                    gdpMillionsCrowns = 464654,
+                    quarter = 3
+            )
     )
 
     val realChanges = listOf(

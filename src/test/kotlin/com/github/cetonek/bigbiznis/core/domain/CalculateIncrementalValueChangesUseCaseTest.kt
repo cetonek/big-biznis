@@ -35,7 +35,7 @@ class CalculateIncrementalValueChangesUseCaseTest {
         assertThat(result.first().value).isCloseTo(5.0, Offset.offset(0.1))
         assertThat(result.first().dataPoint).isEqualTo(2)
 
-        assertThat(result[1]).isEqualTo(OutputPercentageData(2017,((120.toDouble() / 105.0) - 1) * 100, 3))
+        assertThat(result[1]).isEqualTo(OutputPercentageData(2017, ((120.toDouble() / 105.0) - 1) * 100, 3))
 
         assertThat(result[2].order).isEqualTo(2018)
         assertThat(result[2].value).isCloseTo(-16.66, Offset.offset(0.1))
