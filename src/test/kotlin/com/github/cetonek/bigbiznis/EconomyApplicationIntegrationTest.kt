@@ -7,8 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest
 @TestProfile
 class EconomyApplicationIntegrationTest {
 
-	@Test
-	fun fullSpringContextLoads() {
-	}
+    @Test
+    fun fullSpringContextLoads() {
+    }
 
 }

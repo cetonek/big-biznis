@@ -1,6 +1,8 @@
 package com.github.cetonek.bigbiznis.nationalbudget.data
 
 import com.github.cetonek.bigbiznis.DatabaseTest
+import com.github.cetonek.bigbiznis.domain.entity.persisted.PublicDebtEntity
+import com.github.cetonek.bigbiznis.domain.repository.PublicDebtRepository
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -28,7 +30,6 @@ class PublicDebtRepositoryTest {
         assertThat(foundRate.isPresent).isTrue()
         assertThat(foundRate.get()).isEqualTo(entityToSave)
     }
-
 
 
 }

@@ -1,7 +1,9 @@
 package com.github.cetonek.bigbiznis.unemploymentrate.data.database
 
 import com.github.cetonek.bigbiznis.DatabaseTest
-import com.github.cetonek.bigbiznis.unemploymentrate.domain.model.UnemploymentRatePerYearAvg
+import com.github.cetonek.bigbiznis.domain.entity.persisted.UnemploymentRateEntity
+import com.github.cetonek.bigbiznis.domain.repository.UnemploymentRateRepository
+import com.github.cetonek.bigbiznis.domain.entity.UnemploymentRatePerYearAvg
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test

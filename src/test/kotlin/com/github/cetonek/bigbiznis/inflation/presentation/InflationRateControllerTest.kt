@@ -1,12 +1,13 @@
 package com.github.cetonek.bigbiznis.inflation.presentation
 
-import com.github.cetonek.bigbiznis.core.presentation.model.Home
-import com.github.cetonek.bigbiznis.core.presentation.model.Inflation
-import com.github.cetonek.bigbiznis.core.presentation.model.Routing
-import com.github.cetonek.bigbiznis.inflation.data.InflationRateEntity
-import com.github.cetonek.bigbiznis.inflation.data.InflationType.*
-import com.github.cetonek.bigbiznis.inflation.domain.FetchInflationRateUseCase
+import com.github.cetonek.bigbiznis.application.utility.model.Home
+import com.github.cetonek.bigbiznis.application.utility.model.Inflation
+import com.github.cetonek.bigbiznis.application.utility.model.Routing
+import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationRateEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationType.*
+import com.github.cetonek.bigbiznis.domain.service.FetchInflationRateUseCase
 import com.github.cetonek.bigbiznis.utility.breadcrumbs
+import com.github.cetonek.bigbiznis.application.web.mvc.InflationRateController
 import org.junit.jupiter.api.BeforeEach
 
 import org.junit.jupiter.api.Test

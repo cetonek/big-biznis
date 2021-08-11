@@ -1,7 +1,9 @@
 package com.github.cetonek.bigbiznis.exchangerate.domain
 
-import com.github.cetonek.bigbiznis.exchangerate.data.database.ExchangeRateRepository
-import com.github.cetonek.bigbiznis.exchangerate.data.database.toEntity
+import com.github.cetonek.bigbiznis.domain.repository.ExchangeRateRepository
+import com.github.cetonek.bigbiznis.domain.entity.persisted.toEntity
+import com.github.cetonek.bigbiznis.domain.service.FetchExchangeRateUseCase
+import com.github.cetonek.bigbiznis.domain.service.SynchronizeExchangeRateUseCase
 import com.github.cetonek.bigbiznis.utility.exampleRate
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
@@ -16,6 +18,7 @@ class ExchangeRateServiceTest {
 
     @Mock
     lateinit var repository: ExchangeRateRepository
+
     @Mock
     lateinit var synchronizeUseCase: SynchronizeExchangeRateUseCase
 

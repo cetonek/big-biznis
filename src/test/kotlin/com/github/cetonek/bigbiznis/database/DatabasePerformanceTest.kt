@@ -1,8 +1,8 @@
 package com.github.cetonek.bigbiznis.database
 
 import com.github.cetonek.bigbiznis.DatabaseTest
-import com.github.cetonek.bigbiznis.exchangerate.data.database.ExchangeRateEntity
-import com.github.cetonek.bigbiznis.exchangerate.data.database.ExchangeRateRepository
+import com.github.cetonek.bigbiznis.domain.entity.persisted.ExchangeRateEntity
+import com.github.cetonek.bigbiznis.domain.repository.ExchangeRateRepository
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test

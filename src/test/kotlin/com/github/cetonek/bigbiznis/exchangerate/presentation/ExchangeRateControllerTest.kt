@@ -1,9 +1,10 @@
 package com.github.cetonek.bigbiznis.exchangerate.presentation
 
-import com.github.cetonek.bigbiznis.core.presentation.model.Routing
-import com.github.cetonek.bigbiznis.exchangerate.domain.ExchangeRate
-import com.github.cetonek.bigbiznis.exchangerate.domain.FetchExchangeRateUseCase
+import com.github.cetonek.bigbiznis.application.utility.model.Routing
+import com.github.cetonek.bigbiznis.domain.service.FetchExchangeRateUseCase
 import com.github.cetonek.bigbiznis.utility.exampleRate
+import com.github.cetonek.bigbiznis.application.web.mvc.ExchangeRateController
+import com.github.cetonek.bigbiznis.domain.entity.ExchangeRate
 import org.junit.jupiter.api.Test
 import org.mockito.BDDMockito.given
 import org.springframework.beans.factory.annotation.Autowired

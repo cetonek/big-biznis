@@ -1,5 +1,8 @@
 package com.github.cetonek.bigbiznis.core.domain
 
+import com.github.cetonek.bigbiznis.domain.service.CalculateIncrementalValueChangesUseCase
+import com.github.cetonek.bigbiznis.domain.service.InputData
+import com.github.cetonek.bigbiznis.domain.service.OutputPercentageData
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.data.Offset
 import org.junit.jupiter.api.BeforeEach
@@ -22,7 +25,8 @@ class CalculateIncrementalValueChangesUseCaseTest {
                 InputData(2015, 100, 1),
                 InputData(2016, 105, 2),
                 InputData(2017, 120, 3),
-                InputData(2018, 100, 4))
+                InputData(2018, 100, 4)
+        )
         // when
         val result = useCase.calculatePercentageChanges(gdp)
         // then
@@ -31,7 +35,7 @@ class CalculateIncrementalValueChangesUseCaseTest {
         assertThat(result.first().value).isCloseTo(5.0, Offset.offset(0.1))
         assertThat(result.first().dataPoint).isEqualTo(2)
 
-        assertThat(result[1]).isEqualTo(OutputPercentageData(2017,((120.toDouble() / 105.0) - 1) * 100, 3))
+        assertThat(result[1]).isEqualTo(OutputPercentageData(2017, ((120.toDouble() / 105.0) - 1) * 100, 3))
 
         assertThat(result[2].order).isEqualTo(2018)
         assertThat(result[2].value).isCloseTo(-16.66, Offset.offset(0.1))

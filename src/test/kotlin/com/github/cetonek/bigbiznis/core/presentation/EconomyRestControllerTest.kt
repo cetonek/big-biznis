@@ -1,7 +1,7 @@
 package com.github.cetonek.bigbiznis.core.presentation
 
-import com.github.cetonek.bigbiznis.core.presentation.controller.EconomyRestController
-import com.github.cetonek.bigbiznis.exchangerate.domain.FetchExchangeRateUseCase
+import com.github.cetonek.bigbiznis.application.web.rest.EconomyRestController
+import com.github.cetonek.bigbiznis.domain.service.FetchExchangeRateUseCase
 import com.github.cetonek.bigbiznis.utility.exampleRate
 import com.github.cetonek.bigbiznis.utility.mockLatestRates
 import com.fasterxml.jackson.databind.ObjectMapper
@@ -41,7 +41,7 @@ class EconomyRestControllerTest {
         // then
         mvc.perform(get("/api/v1/exchangerate")
                 .accept(MediaType.APPLICATION_JSON))
-                .andExpect(   status().isOk)
+                .andExpect(status().isOk)
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(content().json(expectedJsonResponse))
 

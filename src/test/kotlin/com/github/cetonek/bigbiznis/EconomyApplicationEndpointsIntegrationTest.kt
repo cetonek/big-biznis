@@ -1,6 +1,6 @@
 package com.github.cetonek.bigbiznis
 
-import com.github.cetonek.bigbiznis.core.presentation.model.Routing
+import com.github.cetonek.bigbiznis.application.utility.model.Routing
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -24,11 +24,11 @@ class EconomyApplicationEndpointsIntegrationTest {
     lateinit var restTemplate: RestTemplate
 
     @LocalServerPort
-    var serverPort : Int = 0
+    var serverPort: Int = 0
 
     val host = "http://localhost"
 
-    lateinit var baseUrl : String
+    lateinit var baseUrl: String
 
     @BeforeEach
     fun setUp() {

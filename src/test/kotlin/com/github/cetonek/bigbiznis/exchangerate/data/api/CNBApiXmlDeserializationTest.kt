@@ -3,6 +3,7 @@ package com.github.cetonek.bigbiznis.exchangerate.data.api
 import com.github.cetonek.bigbiznis.TestProfile
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
+import com.github.cetonek.bigbiznis.integration.ExchangeRateRootDto
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test

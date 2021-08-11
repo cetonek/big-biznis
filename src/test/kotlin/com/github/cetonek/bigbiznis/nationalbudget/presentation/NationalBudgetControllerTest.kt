@@ -1,12 +1,13 @@
 package com.github.cetonek.bigbiznis.nationalbudget.presentation
 
-import com.github.cetonek.bigbiznis.core.presentation.model.Home
-import com.github.cetonek.bigbiznis.core.presentation.model.NationalBudget
-import com.github.cetonek.bigbiznis.core.presentation.model.Routing
-import com.github.cetonek.bigbiznis.nationalbudget.data.BudgetBalanceEntity
-import com.github.cetonek.bigbiznis.nationalbudget.data.PublicDebtEntity
-import com.github.cetonek.bigbiznis.nationalbudget.domain.FetchNationalBudgetUseCase
+import com.github.cetonek.bigbiznis.application.utility.model.Home
+import com.github.cetonek.bigbiznis.application.utility.model.NationalBudget
+import com.github.cetonek.bigbiznis.application.utility.model.Routing
+import com.github.cetonek.bigbiznis.domain.entity.persisted.BudgetBalanceEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.PublicDebtEntity
+import com.github.cetonek.bigbiznis.domain.service.FetchNationalBudgetUseCase
 import com.github.cetonek.bigbiznis.utility.breadcrumbs
+import com.github.cetonek.bigbiznis.application.web.mvc.NationalBudgetController
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.BDDMockito.*
