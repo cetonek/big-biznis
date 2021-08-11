@@ -48,7 +48,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     // database
     implementation("org.flywaydb:flyway-core")
-    runtimeOnly("mysql:mysql-connector-java")
+    runtimeOnly("org.postgresql:postgresql")
     // tools
     runtimeOnly("org.springframework.boot:spring-boot-devtools")
     // frontend

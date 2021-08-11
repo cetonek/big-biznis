@@ -1,0 +1,14 @@
+version: '3.4'
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: bigbiznis
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - yolo-volume:/var/lib/postgresql
+    ports:
+    - 8081:5432
+volumes:
+  yolo-volume:
