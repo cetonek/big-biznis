@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/common :: head"></head>
+
+<body>
+
+<!-- header -->
+<div th:replace="fragments/common :: header"></div>
+
+<!-- content -->
+<section class="section">
+
+    <div class="container">
+
+        <div th:replace="fragments/breadcrumb :: breadCrumbs(${breadcrumbs})"></div>
+
+        <h1 class="title is-4">Zdroje dat</h1>
+
+        <div class="columns">
+
+            <!-- content column -->
+            <div class="column is-10 is-12-mobile">
+
+                <div class="box container">
+
+                    <table class="table is-hoverable is-striped is-fullwidth">
+
+                        <thead class="title is-6">
+                        <tr>
+                            <th>Data</th>
+                            <th>Zdroj</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr data-th-each="entry : ${dataSources}">
+                            <td>[[${entry.dataPointName}]]</td>
+                            <td><a target="_blank" rel="noopener noreferrer"
+                                   data-th-href="${entry.url}">
+                                [[${entry.sourceName}]] </a></td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+            <!-- menu column -->
+            <div class="column is-2 is-hidden-mobile">
+
+                <aside class="menu is-sticky has-top-padding box">
+                    <p class="menu-label"><a href="#">O aplikaci</a></p>
+                    <ul class="menu-list">
+                        <li><a href="#zdroje_dat">Zdroje dat</a></li>
+                    </ul>
+
+                </aside>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- footer -->
+<div th:replace="fragments/common :: footer"></div>
+
+</body>
+</html>

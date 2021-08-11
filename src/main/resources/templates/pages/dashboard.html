@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/common :: head"></head>
+
+<script th:replace="fragments/jquery :: clickableTableRows">
+</script>
+
+<body>
+
+<!-- header -->
+<div th:replace="fragments/common :: header"></div>
+
+<!-- content -->
+<section class="section has-text-centered">
+
+    <!-- quick overview -->
+    <div class="container">
+
+        <h1 class="title is-4 is-centered">Základní přehled</h1>
+
+        <!-- horizontal boxes -->
+        <div th:replace="fragments/components :: horizontalBoxes(${dashboard.overview.firstOverviewItems}, 'first_row')">
+        </div>
+        <div th:replace="fragments/components :: horizontalBoxes(${dashboard.overview.secondOverviewItems}, 'second_row')">
+        </div>
+
+
+        <!-- exchange rate -->
+        <div class="box">
+
+            <h1 class="title is-6">Kurzy koruny pro <span
+                    data-th-text="${{dashboard.overview.exchangeRate.date}}"></span>
+            </h1>
+
+            <table class="table is-hoverable is-striped is-fullwidth">
+
+                <thead class="title is-6">
+                <tr>
+                    <th>Kód</th>
+                    <th>Množsví</th>
+                    <th>Kurz</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr id="clickableRow" data-th-each="entry : ${dashboard.overview.exchangeRate.rates}">
+                    <td>[[${entry.currencyCode}]]</td>
+                    <td>[[${entry.amount}]]</td>
+                    <td>[[${entry.exchangeRate}]] <a
+                            data-th-href="@{/kurzy/{path}(path=${entry.currencyCode})}"></a></td>
+                </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <br>
+
+    <!-- real gdp 2010 prices -->
+    <div th:replace="fragments/charts :: valueToPercentageSimpleChart(
+    'chart_real_gdp',
+    'Vývoj reálného HDP v %',
+    'HDP',
+    ${dashboard.realGdp2010PricesPercentChange})"></div>
+
+    <!-- unemployment -->
+    <div th:replace="fragments/charts :: valueToPercentageSimpleChart(
+    'chart_unemployment',
+    'Nezaměstnanost v %',
+    'Nezaměstnanost',
+    ${dashboard.yearlyUnempRates})"></div>
+
+    <!-- inflation -->
+    <div th:replace="fragments/charts :: valueToPercentageSimpleChart(
+    'chart_inflation',
+    'Meziroční vývoj inflace v %',
+    'Inflace',
+    ${dashboard.yearlyInflationRates})"></div>
+
+    <!-- public debt -->
+    <div th:replace="fragments/charts :: valueToMillionsSimpleChart(
+    'chart_public_debt',
+    'Vývoj státního dluhu v běžných cenách',
+    'Státní dluh',
+    ${dashboard.publicDebt})"></div>
+
+</section>
+
+<!-- footer -->
+<div th:replace="fragments/common :: footer"></div>
+
+</body>
+</html>

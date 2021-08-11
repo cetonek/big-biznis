@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Big Biznis</title>
+
+    <link data-th-href="@{/styles.css}" rel="stylesheet">
+    <link rel="stylesheet" data-th-href="@{/webjars/font-awesome/5.12.0/css/all.min.css}"/>
+    <script type="text/javascript" data-th-src="@{/webjars/jquery/3.6.0/jquery.js}"></script>
+    <script type="text/javascript" data-th-src="@{/webjars/momentjs/2.29.1/min/moment.min.js}"></script>
+
+    <script type="text/javascript" data-th-src="@{/webjars/echarts/5.0.2/echarts.min.js}"></script>
+    <script type="text/javascript" data-th-src="@{/custom_dark_echarts.js}"></script>
+    <script type="text/javascript" data-th-src="@{/charts_common.js}"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Check for click events on the navbar burger icon
+            $(".navbar-burger").click(function () {
+                // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                $(".navbar-burger").toggleClass("is-active");
+                $(".navbar-menu").toggleClass("is-active");
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            window.onresize = function () {
+                $(".echart").each(function () {
+                    var id = $(this).attr('_echarts_instance_');
+                    window.echarts.getInstanceById(id).resize();
+                });
+            };
+        });
+    </script>
+
+</head>
+
+<body>
+
+<!-- header -->
+<div th:fragment="header">
+
+    <nav class="navbar is-spaced">
+
+        <div class="container">
+
+            <div class="navbar-brand">
+
+                <a class="navbar-item" href="/">
+                    <h1 class="title is-4"><i class="fas fa-coins">&nbsp;</i> BigBiznis</h1>
+                </a>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+
+            </div>
+
+            <div class="navbar-menu">
+                <div class="navbar-end">
+                    <a class="navbar-item" href="/hdp">
+                        HDP
+                    </a>
+
+                    <a class="navbar-item" href="/inflace">
+                        Inflace
+                    </a>
+
+                    <a class="navbar-item" href="/nezamestnanost">
+                        Nezaměstnanost
+                    </a>
+
+                    <a class="navbar-item" href="/statni-rozpocet">
+                        Státní rozpočet
+                    </a>
+
+                    <a class="navbar-item" href="/mzdy">
+                        Mzdy
+                    </a>
+
+                    <a class="navbar-item" href="/kurzy">
+                        Kurzy
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+
+    </nav>
+
+</div>
+
+
+<!-- footer -->
+<div data-th-fragment="footer">
+
+    <footer class="footer is-full">
+
+        <div class="container">
+
+            <div class="columns">
+
+                <div class="column">
+
+                    <a href="/">
+                        <h1 class="title is-4">Domů</h1>
+                    </a>
+
+                </div>
+
+                <div class="column">
+
+                    <h1 class="title is-4">Vývojáři</h1>
+
+                    <a target="_blank" rel="noopener noreferrer"
+                       href="https://github.com/cetonek/big-biznis">
+                        <h1 class="subtitle is-6">Open source</h1>
+                    </a>
+
+                    <br>
+
+                    <a target="_blank" rel="noopener noreferrer"
+                       href="/api/dokumentace/index.html">
+                        <h1 class="subtitle is-6">Api dokumentace</h1>
+                    </a>
+
+                </div>
+
+                <div class="column">
+
+                    <h1 class="title is-4">Více</h1>
+
+                    <a href="/o-aplikaci">
+                        <h1 class="subtitle is-6">O aplikaci</h1>
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/common :: head"></head>
+
+<body>
+
+<!-- value to millions crowns chart (ie gdp by year, public debt by year) -->
+<div th:fragment="valueToMillionsSimpleChart(chartname, title,  seriesName, data)"
+     data-th-id="${chartname}" class="container has-echart box echart">
+
+    <script data-th-inline="javascript">
+        var chartContainerId = /*[[${chartname}]]*/ '';
+        var seriesName = /*[[${seriesName}]]*/ '';
+
+        var data = /*[[${data}]]*/ {};
+        var title = /*[[${title}]]*/ '';
+
+        buildFromBasicOptions(chartContainerId, title, {
+            xAxis: {
+                data: data.map(function (it) {
+                    return it.first;
+                })
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    formatter: function (a) {
+                        return a.toLocaleString() + ' mld Kč'
+                    }
+                },
+            },
+            series: [{
+                name: seriesName,
+                type: 'line',
+                sampling: 'average',
+                areaStyle: getAreaGradientStyle(),
+                data: data.map(function (it) {
+                    return Math.round(it.second / 1000);
+                })
+            }]
+        })
+
+    </script>
+
+</div>
+
+<!-- value to crowns chart (ie average salary) -->
+<div th:fragment="valueToCrownsSimpleChart(chartname, title,  seriesName, data)"
+     data-th-id="${chartname}" class="container has-echart box echart">
+
+    <script data-th-inline="javascript">
+        var chartContainerId = /*[[${chartname}]]*/ '';
+        var seriesName = /*[[${seriesName}]]*/ '';
+        var data = /*[[${data}]]*/ {};
+        var title = /*[[${title}]]*/ '';
+
+        buildFromBasicOptions(chartContainerId, title, {
+            xAxis: {
+                data: data.map(function (it) {
+                    return it.first;
+                })
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    formatter: function (a) {
+                        return a.toLocaleString() + ' Kč'
+                    }
+                },
+            },
+            series: [{
+                name: seriesName,
+                type: 'line',
+                sampling: 'average',
+                areaStyle: getAreaGradientStyle(),
+                data: data.map(function (it) {
+                    return Math.round(it.second);
+                })
+            }]
+        })
+    </script>
+
+</div>
+
+<!-- value to percentage chart (ie unemployment by year, inlflation by year) -->
+<div th:fragment="valueToPercentageSimpleChart(chartname, title,  seriesName, data)"
+     data-th-id="${chartname}" class="container has-echart box echart echart">
+
+    <script data-th-inline="javascript">
+        var chartContainerId = /*[[${chartname}]]*/ '';
+        var seriesName = /*[[${seriesName}]]*/ '';
+        var data = /*[[${data}]]*/ {};
+        var title = /*[[${title}]]*/ '';
+
+        buildFromBasicOptions(chartContainerId, title, {
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    formatter: function (a) {
+                        return a + ' %'
+                    }
+                },
+            },
+            xAxis: {
+                data: data.map(function (it) {
+                    return it.first;
+                })
+            },
+            series: [{
+                name: seriesName,
+                type: 'line',
+                sampling: 'average',
+                areaStyle: getAreaGradientStyle(),
+                data: data.map(function (it) {
+                    return it.second.toFixed(1);
+                })
+            }]
+        })
+
+    </script>
+
+</div>
+
+</body>
+
+</html>
