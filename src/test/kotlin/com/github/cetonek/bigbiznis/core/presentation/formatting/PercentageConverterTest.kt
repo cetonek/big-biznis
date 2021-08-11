@@ -1,5 +1,7 @@
 package com.github.cetonek.bigbiznis.core.presentation.formatting
 
+import com.github.cetonek.bigbiznis.application.utility.formatting.Percentage
+import com.github.cetonek.bigbiznis.application.utility.formatting.PercentageConverter
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 

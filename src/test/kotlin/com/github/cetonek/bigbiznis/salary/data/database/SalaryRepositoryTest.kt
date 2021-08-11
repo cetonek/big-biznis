@@ -1,6 +1,9 @@
 package com.github.cetonek.bigbiznis.salary.data.database
 
 import com.github.cetonek.bigbiznis.DatabaseTest
+import com.github.cetonek.bigbiznis.domain.entity.persisted.SalaryEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.key
+import com.github.cetonek.bigbiznis.domain.repository.SalaryRepository
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test

@@ -1,10 +1,10 @@
 package com.github.cetonek.bigbiznis.core
 
 import com.github.cetonek.bigbiznis.TestProfile
-import com.github.cetonek.bigbiznis.core.domain.EvictAllCacheUseCase
-import com.github.cetonek.bigbiznis.salary.data.database.SalaryEntity
-import com.github.cetonek.bigbiznis.salary.data.database.SalaryRepository
-import com.github.cetonek.bigbiznis.salary.domain.FetchSalaryUseCase
+import com.github.cetonek.bigbiznis.domain.service.EvictAllCacheUseCase
+import com.github.cetonek.bigbiznis.domain.entity.persisted.SalaryEntity
+import com.github.cetonek.bigbiznis.domain.repository.SalaryRepository
+import com.github.cetonek.bigbiznis.domain.service.FetchSalaryUseCase
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.BDDMockito.*

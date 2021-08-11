@@ -1,8 +1,8 @@
 package com.github.cetonek.bigbiznis.exchangerate.domain.health
 
-import com.github.cetonek.bigbiznis.core.data.api.CNBClient
-import com.github.cetonek.bigbiznis.exchangerate.data.api.ExchangeRateRootDto
-import com.github.cetonek.bigbiznis.exchangerate.presentation.health.CNBHealthIndicator
+import com.github.cetonek.bigbiznis.integration.CNBClient
+import com.github.cetonek.bigbiznis.integration.ExchangeRateRootDto
+import com.github.cetonek.bigbiznis.application.web.health.CNBHealthIndicator
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test

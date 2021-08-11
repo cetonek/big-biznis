@@ -1,11 +1,12 @@
 package com.github.cetonek.bigbiznis.salary.presentation
 
-import com.github.cetonek.bigbiznis.core.presentation.model.Home
-import com.github.cetonek.bigbiznis.core.presentation.model.Routing
-import com.github.cetonek.bigbiznis.core.presentation.model.Salary
-import com.github.cetonek.bigbiznis.salary.data.database.SalaryEntity
-import com.github.cetonek.bigbiznis.salary.domain.FetchSalaryUseCase
+import com.github.cetonek.bigbiznis.application.utility.model.Home
+import com.github.cetonek.bigbiznis.application.utility.model.Routing
+import com.github.cetonek.bigbiznis.application.utility.model.Salary
+import com.github.cetonek.bigbiznis.domain.entity.persisted.SalaryEntity
+import com.github.cetonek.bigbiznis.domain.service.FetchSalaryUseCase
 import com.github.cetonek.bigbiznis.utility.breadcrumbs
+import com.github.cetonek.bigbiznis.application.web.mvc.SalaryController
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.BDDMockito.given
@@ -29,9 +30,11 @@ class SalaryControllerTest {
     @BeforeEach
     fun setUp() {
         given(fetchSalary.fetchAll())
-                .willReturn(listOf(SalaryEntity(quarter = 4,
+                .willReturn(listOf(
+                    SalaryEntity(quarter = 4,
                         year = 2018,
-                        salaryCrowns = 35785)))
+                        salaryCrowns = 35785)
+                ))
     }
 
     @Test

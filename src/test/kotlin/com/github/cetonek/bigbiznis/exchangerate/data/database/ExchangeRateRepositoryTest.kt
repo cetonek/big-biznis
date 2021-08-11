@@ -1,6 +1,9 @@
 package com.github.cetonek.bigbiznis.exchangerate.data.database
 
 import com.github.cetonek.bigbiznis.TestProfile
+import com.github.cetonek.bigbiznis.domain.entity.persisted.ExchangeRateEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.key
+import com.github.cetonek.bigbiznis.domain.repository.ExchangeRateRepository
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired

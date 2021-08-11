@@ -1,11 +1,12 @@
 package com.github.cetonek.bigbiznis.unemploymentrate.presentation
 
-import com.github.cetonek.bigbiznis.core.presentation.model.Home
-import com.github.cetonek.bigbiznis.core.presentation.model.Routing
-import com.github.cetonek.bigbiznis.core.presentation.model.Unemployment
-import com.github.cetonek.bigbiznis.unemploymentrate.data.database.UnemploymentRateEntity
-import com.github.cetonek.bigbiznis.unemploymentrate.domain.FetchUnemploymentRateUseCase
+import com.github.cetonek.bigbiznis.application.utility.model.Home
+import com.github.cetonek.bigbiznis.application.utility.model.Routing
+import com.github.cetonek.bigbiznis.application.utility.model.Unemployment
+import com.github.cetonek.bigbiznis.domain.entity.persisted.UnemploymentRateEntity
+import com.github.cetonek.bigbiznis.domain.service.FetchUnemploymentRateUseCase
 import com.github.cetonek.bigbiznis.utility.breadcrumbs
+import com.github.cetonek.bigbiznis.application.web.mvc.UnemploymentController
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.BDDMockito.*

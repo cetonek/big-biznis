@@ -1,16 +1,17 @@
 package com.github.cetonek.bigbiznis.dashboard.presentation
 
-import com.github.cetonek.bigbiznis.core.domain.OutputPercentageData
-import com.github.cetonek.bigbiznis.core.presentation.utility.mapToPairs
-import com.github.cetonek.bigbiznis.dashboard.domain.ComposeDashboardUseCase
-import com.github.cetonek.bigbiznis.dashboard.domain.EconomyOverview
-import com.github.cetonek.bigbiznis.dashboard.domain.ExchangeRatesOverview
-import com.github.cetonek.bigbiznis.inflation.data.InflationRateEntity
-import com.github.cetonek.bigbiznis.inflation.data.InflationType
-import com.github.cetonek.bigbiznis.nationalbudget.data.PublicDebtEntity
-import com.github.cetonek.bigbiznis.unemploymentrate.domain.model.UnemploymentRatePerYearAvg
+import com.github.cetonek.bigbiznis.domain.service.OutputPercentageData
+import com.github.cetonek.bigbiznis.application.utility.utility.mapToPairs
+import com.github.cetonek.bigbiznis.domain.service.ComposeDashboardUseCase
+import com.github.cetonek.bigbiznis.domain.service.EconomyOverview
+import com.github.cetonek.bigbiznis.domain.service.ExchangeRatesOverview
+import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationRateEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationType
+import com.github.cetonek.bigbiznis.domain.entity.persisted.PublicDebtEntity
+import com.github.cetonek.bigbiznis.domain.entity.UnemploymentRatePerYearAvg
 import com.github.cetonek.bigbiznis.utility.exampleRate
 import com.github.cetonek.bigbiznis.utility.mockDashboard
+import com.github.cetonek.bigbiznis.application.web.mvc.DashboardController
 import org.junit.jupiter.api.Test
 import org.mockito.BDDMockito.given
 import org.springframework.beans.factory.annotation.Autowired
@@ -35,8 +36,10 @@ class DashboardControllerTest {
     val gdp = listOf(OutputPercentageData(order = 2015, value = 5.5, dataPoint = 0))
     val unemp = listOf(UnemploymentRatePerYearAvg(2015, unemploymentRatePercent = 5.7))
 
-    val inflation = listOf(InflationRateEntity(month = 12, year = 2015, type = InflationType.THIS_YEAR_VS_LAST_YEAR,
-            valuePercent = 5f))
+    val inflation = listOf(
+        InflationRateEntity(month = 12, year = 2015, type = InflationType.THIS_YEAR_VS_LAST_YEAR,
+            valuePercent = 5f)
+    )
 
     val publicDebt = listOf(PublicDebtEntity(year = 2015, millionsCrowns = 1564654))
 

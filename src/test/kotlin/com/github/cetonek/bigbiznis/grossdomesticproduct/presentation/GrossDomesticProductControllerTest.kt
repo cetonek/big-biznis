@@ -1,15 +1,16 @@
 package com.github.cetonek.bigbiznis.grossdomesticproduct.presentation
 
-import com.github.cetonek.bigbiznis.core.domain.OutputPercentageData
-import com.github.cetonek.bigbiznis.core.presentation.model.Gdp
-import com.github.cetonek.bigbiznis.core.presentation.model.Home
-import com.github.cetonek.bigbiznis.core.presentation.model.Routing
-import com.github.cetonek.bigbiznis.core.presentation.utility.mapToPairs
-import com.github.cetonek.bigbiznis.core.presentation.utility.quarterToRoman
-import com.github.cetonek.bigbiznis.grossdomesticproduct.data.database.GrossDomesticProductEntity
-import com.github.cetonek.bigbiznis.grossdomesticproduct.data.database.GrossDomesticProductType.*
-import com.github.cetonek.bigbiznis.grossdomesticproduct.domain.FetchGrossDomesticProductUseCase
+import com.github.cetonek.bigbiznis.domain.service.OutputPercentageData
+import com.github.cetonek.bigbiznis.application.utility.model.Gdp
+import com.github.cetonek.bigbiznis.application.utility.model.Home
+import com.github.cetonek.bigbiznis.application.utility.model.Routing
+import com.github.cetonek.bigbiznis.application.utility.utility.mapToPairs
+import com.github.cetonek.bigbiznis.application.utility.utility.quarterToRoman
+import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductType.*
+import com.github.cetonek.bigbiznis.domain.service.FetchGrossDomesticProductUseCase
 import com.github.cetonek.bigbiznis.utility.breadcrumbs
+import com.github.cetonek.bigbiznis.application.web.mvc.GrossDomesticProductController
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.BDDMockito.given
@@ -30,16 +31,19 @@ class GrossDomesticProductControllerTest {
     @MockBean
     lateinit var fetchGdp: FetchGrossDomesticProductUseCase
 
-    val realGdp = listOf(GrossDomesticProductEntity(
+    val realGdp = listOf(
+        GrossDomesticProductEntity(
             year = 2020,
             type = REAL_2010_PRICES,
             gdpMillionsCrowns = 464654,
             quarter = 3
-    ))
+    )
+    )
 
     val realChanges = listOf(
             OutputPercentageData(2015, 4.0, GrossDomesticProductEntity(
-                    year = 2015, quarter = 4, gdpMillionsCrowns = 54564, type = REAL_2010_PRICES))
+                    year = 2015, quarter = 4, gdpMillionsCrowns = 54564, type = REAL_2010_PRICES)
+            )
     )
 
     @BeforeEach

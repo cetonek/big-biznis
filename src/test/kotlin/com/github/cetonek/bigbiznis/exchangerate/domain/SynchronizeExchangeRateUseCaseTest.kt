@@ -1,12 +1,14 @@
 package com.github.cetonek.bigbiznis.exchangerate.domain
 
-import com.github.cetonek.bigbiznis.core.data.api.CNBClient
-import com.github.cetonek.bigbiznis.exchangerate.data.api.ExchangeRateDto
-import com.github.cetonek.bigbiznis.exchangerate.data.api.ExchangeRateRootDto
-import com.github.cetonek.bigbiznis.exchangerate.data.api.ExchangeRateTableDto
-import com.github.cetonek.bigbiznis.exchangerate.data.api.toDomain
-import com.github.cetonek.bigbiznis.exchangerate.data.database.ExchangeRateRepository
-import com.github.cetonek.bigbiznis.exchangerate.data.database.toEntity
+import com.github.cetonek.bigbiznis.application.configuration.ExchangeRateConfiguration
+import com.github.cetonek.bigbiznis.integration.CNBClient
+import com.github.cetonek.bigbiznis.integration.ExchangeRateDto
+import com.github.cetonek.bigbiznis.integration.ExchangeRateRootDto
+import com.github.cetonek.bigbiznis.integration.ExchangeRateTableDto
+import com.github.cetonek.bigbiznis.integration.toDomain
+import com.github.cetonek.bigbiznis.domain.repository.ExchangeRateRepository
+import com.github.cetonek.bigbiznis.domain.entity.persisted.toEntity
+import com.github.cetonek.bigbiznis.domain.service.SynchronizeExchangeRateUseCase
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith

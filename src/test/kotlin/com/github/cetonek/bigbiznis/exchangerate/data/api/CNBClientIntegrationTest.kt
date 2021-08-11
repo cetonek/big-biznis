@@ -1,7 +1,7 @@
 package com.github.cetonek.bigbiznis.exchangerate.data.api
 
 import com.github.cetonek.bigbiznis.TestProfile
-import com.github.cetonek.bigbiznis.core.data.api.CNBClient
+import com.github.cetonek.bigbiznis.integration.CNBClient
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.RepeatedTest

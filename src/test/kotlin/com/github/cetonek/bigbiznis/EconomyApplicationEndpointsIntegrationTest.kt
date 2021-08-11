@@ -1,6 +1,6 @@
 package com.github.cetonek.bigbiznis
 
-import com.github.cetonek.bigbiznis.core.presentation.model.Routing
+import com.github.cetonek.bigbiznis.application.utility.model.Routing
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test

@@ -1,12 +1,12 @@
 package com.github.cetonek.bigbiznis.core.presentation
 
-import com.github.cetonek.bigbiznis.core.domain.FetchDataSourcesUseCase
-import com.github.cetonek.bigbiznis.core.domain.Inflation
-import com.github.cetonek.bigbiznis.core.domain.RealGdp
-import com.github.cetonek.bigbiznis.core.presentation.controller.AboutController
-import com.github.cetonek.bigbiznis.core.presentation.model.About
-import com.github.cetonek.bigbiznis.core.presentation.model.Home
-import com.github.cetonek.bigbiznis.core.presentation.model.Routing
+import com.github.cetonek.bigbiznis.domain.service.FetchDataSourcesUseCase
+import com.github.cetonek.bigbiznis.domain.service.Inflation
+import com.github.cetonek.bigbiznis.domain.service.RealGdp
+import com.github.cetonek.bigbiznis.application.web.mvc.AboutController
+import com.github.cetonek.bigbiznis.application.utility.model.About
+import com.github.cetonek.bigbiznis.application.utility.model.Home
+import com.github.cetonek.bigbiznis.application.utility.model.Routing
 import com.github.cetonek.bigbiznis.utility.breadcrumbs
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test

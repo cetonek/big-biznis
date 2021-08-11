@@ -1,13 +1,13 @@
 package com.github.cetonek.bigbiznis.utility
 
-import com.github.cetonek.bigbiznis.dashboard.domain.ComposeDashboardUseCase
-import com.github.cetonek.bigbiznis.exchangerate.domain.ExchangeRate
-import com.github.cetonek.bigbiznis.exchangerate.domain.FetchExchangeRateUseCase
-import com.github.cetonek.bigbiznis.grossdomesticproduct.data.database.GrossDomesticProductEntity
-import com.github.cetonek.bigbiznis.grossdomesticproduct.data.database.GrossDomesticProductType
-import com.github.cetonek.bigbiznis.grossdomesticproduct.domain.FetchGrossDomesticProductUseCase
-import com.github.cetonek.bigbiznis.unemploymentrate.domain.FetchUnemploymentRateUseCase
-import com.github.cetonek.bigbiznis.unemploymentrate.domain.model.UnemploymentRatePerYearAvg
+import com.github.cetonek.bigbiznis.domain.entity.ExchangeRate
+import com.github.cetonek.bigbiznis.domain.service.ComposeDashboardUseCase
+import com.github.cetonek.bigbiznis.domain.service.FetchExchangeRateUseCase
+import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductType
+import com.github.cetonek.bigbiznis.domain.service.FetchGrossDomesticProductUseCase
+import com.github.cetonek.bigbiznis.domain.service.FetchUnemploymentRateUseCase
+import com.github.cetonek.bigbiznis.domain.entity.UnemploymentRatePerYearAvg
 import org.mockito.BDDMockito.given
 import java.time.LocalDate
 
@@ -22,7 +22,7 @@ val exampleRate = ExchangeRate(date = LocalDate.now(),
         exchangeRate = 25.5,
         country = "USA")
 
-fun FetchGrossDomesticProductUseCase.mockGDP(type: GrossDomesticProductType ,gdps: List<GrossDomesticProductEntity>) {
+fun FetchGrossDomesticProductUseCase.mockGDP(type: GrossDomesticProductType, gdps: List<GrossDomesticProductEntity>) {
     given(this.fetchGdp(type)).willReturn(gdps)
 }
 
