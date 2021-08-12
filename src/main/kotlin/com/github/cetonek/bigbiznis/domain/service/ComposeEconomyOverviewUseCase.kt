@@ -74,7 +74,7 @@ class ComposeEconomyOverviewUseCase(private val exchangeRepository: ExchangeRate
         return Triple(
                 "Průměrná mzda",
                 QuarterAndYear(averageSalary.quarter, averageSalary.year),
-                averageSalary.salaryCrowns.czechCrowns
+                averageSalary.crowns.czechCrowns
         )
     }
 

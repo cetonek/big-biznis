@@ -9,7 +9,7 @@ import com.github.cetonek.bigbiznis.application.utility.model.Routing
 import com.github.cetonek.bigbiznis.application.utility.model.Salary
 import com.github.cetonek.bigbiznis.application.utility.utility.addBreadcrumbs
 import com.github.cetonek.bigbiznis.application.utility.utility.mapToPairs
-import com.github.cetonek.bigbiznis.domain.entity.persisted.SalaryEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.AverageSalary
 import com.github.cetonek.bigbiznis.domain.service.FetchSalaryUseCase
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -32,7 +32,7 @@ class SalaryController(private val fetchSalary: FetchSalaryUseCase,
         model.addAttribute("salary", OverviewAndGraph(
                 graph = salary.mapToPairs {
                     Pair(quarterAndYearConverter.convert(QuarterAndYear(it.quarter, it.year)),
-                            it.salaryCrowns)
+                            it.crowns)
                 },
                 overview = overview(salary)
         ))
@@ -40,18 +40,18 @@ class SalaryController(private val fetchSalary: FetchSalaryUseCase,
         return template
     }
 
-    private fun overview(input: List<SalaryEntity>): List<Triple<*, *, *>> {
+    private fun overview(input: List<AverageSalary>): List<Triple<*, *, *>> {
         return listOf(
                 triple("Aktuální", input.last()),
-                triple("Nejnižší", input.minByOrNull { it.salaryCrowns }!!),
-                triple("Nejvyšší", input.maxByOrNull { it.salaryCrowns }!!)
+                triple("Nejnižší", input.minByOrNull { it.crowns }!!),
+                triple("Nejvyšší", input.maxByOrNull { it.crowns }!!)
         )
     }
 
-    private fun triple(title: String, salary: SalaryEntity): Triple<*, *, *> {
+    private fun triple(title: String, salary: AverageSalary): Triple<*, *, *> {
         return Triple(title,
                 QuarterAndYear(salary.quarter, salary.year),
-                salary.salaryCrowns.czechCrowns
+                salary.crowns.czechCrowns
         )
     }
 

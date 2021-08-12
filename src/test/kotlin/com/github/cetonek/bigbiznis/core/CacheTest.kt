@@ -2,8 +2,8 @@ package com.github.cetonek.bigbiznis.core
 
 import com.github.cetonek.bigbiznis.TestProfile
 import com.github.cetonek.bigbiznis.domain.service.EvictAllCacheUseCase
-import com.github.cetonek.bigbiznis.domain.entity.persisted.SalaryEntity
-import com.github.cetonek.bigbiznis.domain.repository.SalaryRepository
+import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.AverageSalary
+import com.github.cetonek.bigbiznis.domain.repository.AverageSalaryRepository
 import com.github.cetonek.bigbiznis.domain.service.FetchSalaryUseCase
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -23,7 +23,7 @@ class CacheTest {
     lateinit var evictCache: EvictAllCacheUseCase
 
     @MockBean
-    lateinit var salaryRepository: SalaryRepository
+    lateinit var averageSalaryRepository: AverageSalaryRepository
 
     @BeforeEach
     fun setUp() {
@@ -33,36 +33,38 @@ class CacheTest {
     @Test
     fun `fetch all is cached if result isnt empty`() {
         // given
-        given(salaryRepository.findAll()).willReturn(
-                listOf(SalaryEntity()))
+        given(averageSalaryRepository.findAll()).willReturn(
+                listOf(
+                        AverageSalary(quarter = 4, year = 2020, crowns = 25000)
+                ))
         // when
         fetchSalary.fetchAll()
         fetchSalary.fetchAll()
         fetchSalary.fetchAll()
         // then
-        verify(salaryRepository, times(1)).findAll()
-        verifyNoMoreInteractions(salaryRepository)
+        verify(averageSalaryRepository, times(1)).findAll()
+        verifyNoMoreInteractions(averageSalaryRepository)
     }
 
 
     @Test
     fun `fetch all is NOT cached when result is empty`() {
         // given
-        given(salaryRepository.findAll()).willReturn(
+        given(averageSalaryRepository.findAll()).willReturn(
                 listOf())
         // when
         fetchSalary.fetchAll()
         fetchSalary.fetchAll()
         fetchSalary.fetchAll()
         // then
-        verify(salaryRepository, times(3)).findAll()
+        verify(averageSalaryRepository, times(3)).findAll()
     }
 
     @Test
     fun `fetch all is cached then evicted and then cached again`() {
         // given
-        given(salaryRepository.findAll()).willReturn(
-                listOf(SalaryEntity()))
+        given(averageSalaryRepository.findAll()).willReturn(
+                listOf(AverageSalary(quarter = 4, year = 2020, crowns = 25000)))
         // when
         fetchSalary.fetchAll()
 
@@ -71,7 +73,7 @@ class CacheTest {
         fetchSalary.fetchAll()
         fetchSalary.fetchAll()
         // then
-        verify(salaryRepository, times(2)).findAll()
+        verify(averageSalaryRepository, times(2)).findAll()
     }
 
 
