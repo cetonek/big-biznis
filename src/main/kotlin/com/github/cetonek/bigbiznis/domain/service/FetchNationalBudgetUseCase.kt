@@ -2,7 +2,7 @@ package com.github.cetonek.bigbiznis.domain.service
 
 import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.BudgetBalance
 import com.github.cetonek.bigbiznis.domain.repository.BudgetBalanceRepository
-import com.github.cetonek.bigbiznis.domain.entity.persisted.PublicDebtEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.PublicDebt
 import com.github.cetonek.bigbiznis.domain.repository.PublicDebtRepository
 import org.springframework.cache.annotation.Cacheable
 import org.springframework.stereotype.Service
@@ -13,12 +13,12 @@ class FetchNationalBudgetUseCase(private val budgetBalanceRepository: BudgetBala
 ) {
 
     @Cacheable("FetchNationalBudgetUseCase::fetchPublicDebt")
-    fun fetchPublicDebt(): List<PublicDebtEntity> {
+    fun fetchPublicDebt(): List<PublicDebt> {
         return publicDebtRepository.findAll()
     }
 
     @Cacheable("FetchNationalBudgetUseCase::findCurrentPublicDebt")
-    fun findCurrentPublicDebt(): PublicDebtEntity = publicDebtRepository.findFirstByOrderByYearDesc()
+    fun findCurrentPublicDebt(): PublicDebt = publicDebtRepository.findFirstByOrderByYearDesc()
 
     @Cacheable("FetchNationalBudgetUseCase::fetchBudgetBalance")
     fun fetchBudgetBalance(): List<BudgetBalance> {

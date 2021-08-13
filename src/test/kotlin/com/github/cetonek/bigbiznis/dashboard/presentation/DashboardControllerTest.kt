@@ -7,7 +7,7 @@ import com.github.cetonek.bigbiznis.domain.service.EconomyOverview
 import com.github.cetonek.bigbiznis.domain.service.ExchangeRatesOverview
 import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationRateEntity
 import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationType
-import com.github.cetonek.bigbiznis.domain.entity.persisted.PublicDebtEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.PublicDebt
 import com.github.cetonek.bigbiznis.domain.entity.UnemploymentRatePerYearAvg
 import com.github.cetonek.bigbiznis.utility.exampleRate
 import com.github.cetonek.bigbiznis.utility.mockDashboard
@@ -41,7 +41,7 @@ class DashboardControllerTest {
                     valuePercent = 5f)
     )
 
-    val publicDebt = listOf(PublicDebtEntity(year = 2015, millionsCrowns = 1564654))
+    val publicDebt = listOf(PublicDebt(year = 2015, millionsCrowns = 1564654))
 
     val overview = EconomyOverview(
             exchangeRate = ExchangeRatesOverview(LocalDate.now(), listOf(exampleRate)),
