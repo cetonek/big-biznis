@@ -1,6 +1,6 @@
 package com.github.cetonek.bigbiznis.domain.service
 
-import com.github.cetonek.bigbiznis.domain.entity.persisted.BudgetBalanceEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.BudgetBalance
 import com.github.cetonek.bigbiznis.domain.repository.BudgetBalanceRepository
 import com.github.cetonek.bigbiznis.domain.entity.persisted.PublicDebtEntity
 import com.github.cetonek.bigbiznis.domain.repository.PublicDebtRepository
@@ -21,7 +21,7 @@ class FetchNationalBudgetUseCase(private val budgetBalanceRepository: BudgetBala
     fun findCurrentPublicDebt(): PublicDebtEntity = publicDebtRepository.findFirstByOrderByYearDesc()
 
     @Cacheable("FetchNationalBudgetUseCase::fetchBudgetBalance")
-    fun fetchBudgetBalance(): List<BudgetBalanceEntity> {
+    fun fetchBudgetBalance(): List<BudgetBalance> {
         return budgetBalanceRepository.findAll()
     }
 

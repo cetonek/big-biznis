@@ -3,7 +3,7 @@ package com.github.cetonek.bigbiznis.nationalbudget.presentation
 import com.github.cetonek.bigbiznis.application.utility.model.Home
 import com.github.cetonek.bigbiznis.application.utility.model.NationalBudget
 import com.github.cetonek.bigbiznis.application.utility.model.Routing
-import com.github.cetonek.bigbiznis.domain.entity.persisted.BudgetBalanceEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.BudgetBalance
 import com.github.cetonek.bigbiznis.domain.entity.persisted.PublicDebtEntity
 import com.github.cetonek.bigbiznis.domain.service.FetchNationalBudgetUseCase
 import com.github.cetonek.bigbiznis.utility.breadcrumbs
@@ -28,7 +28,7 @@ internal class NationalBudgetControllerTest {
     @MockBean
     lateinit var fetchBudget: FetchNationalBudgetUseCase
 
-    val budgetBalance = listOf(BudgetBalanceEntity(2015, 1546464))
+    val budgetBalance = listOf(BudgetBalance(2015, 1546464))
     val publicDebt = listOf(PublicDebtEntity(2015, 46546))
 
     @BeforeEach

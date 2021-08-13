@@ -1,12 +1,12 @@
 package com.github.cetonek.bigbiznis.domain.repository
 
-import com.github.cetonek.bigbiznis.domain.entity.persisted.BudgetBalanceEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.BudgetBalance
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-interface BudgetBalanceRepository : JpaRepository<BudgetBalanceEntity, Int> {
+interface BudgetBalanceRepository : JpaRepository<BudgetBalance, Long> {
 
-    fun findFirstByOrderByYearDesc(): BudgetBalanceEntity
+    fun findFirstByOrderByYearDesc(): BudgetBalance
 
 }

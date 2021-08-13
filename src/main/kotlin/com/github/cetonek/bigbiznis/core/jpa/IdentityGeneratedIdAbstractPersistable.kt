@@ -58,17 +58,17 @@ abstract class IdentityGeneratedIdAbstractPersistable<PK : Serializable?> : Pers
      * (non-Javadoc)
      * @see java.lang.Object#equals(java.lang.Object)
      */
-    override fun equals(obj: Any?): Boolean {
-        if (null == obj) {
+    override fun equals(other: Any?): Boolean {
+        if (null == other) {
             return false
         }
-        if (this === obj) {
+        if (this === other) {
             return true
         }
-        if (javaClass != ProxyUtils.getUserClass(obj)) {
+        if (javaClass != ProxyUtils.getUserClass(other)) {
             return false
         }
-        val that = obj as IdentityGeneratedIdAbstractPersistable<*>
+        val that = other as IdentityGeneratedIdAbstractPersistable<*>
         return if (null == getId()) false else getId() == that.getId()
     }
 
