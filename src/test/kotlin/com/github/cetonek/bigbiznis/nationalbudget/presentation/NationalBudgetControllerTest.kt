@@ -3,7 +3,7 @@ package com.github.cetonek.bigbiznis.nationalbudget.presentation
 import com.github.cetonek.bigbiznis.application.utility.model.Home
 import com.github.cetonek.bigbiznis.application.utility.model.NationalBudget
 import com.github.cetonek.bigbiznis.application.utility.model.Routing
-import com.github.cetonek.bigbiznis.domain.entity.persisted.BudgetBalance
+import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.BudgetBalance
 import com.github.cetonek.bigbiznis.domain.entity.persisted.PublicDebtEntity
 import com.github.cetonek.bigbiznis.domain.service.FetchNationalBudgetUseCase
 import com.github.cetonek.bigbiznis.utility.breadcrumbs

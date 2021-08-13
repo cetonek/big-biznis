@@ -1,6 +1,6 @@
 package com.github.cetonek.bigbiznis.domain.service
 
-import com.github.cetonek.bigbiznis.domain.entity.persisted.BudgetBalance
+import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.BudgetBalance
 import com.github.cetonek.bigbiznis.domain.repository.BudgetBalanceRepository
 import com.github.cetonek.bigbiznis.domain.entity.persisted.PublicDebtEntity
 import com.github.cetonek.bigbiznis.domain.repository.PublicDebtRepository

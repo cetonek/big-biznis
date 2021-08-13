@@ -1,4 +1,4 @@
-package com.github.cetonek.bigbiznis.domain.entity.persisted
+package com.github.cetonek.bigbiznis.domain.entity.persisted.refactored
 
 import com.github.cetonek.bigbiznis.application.utility.utility.PairConvertable
 import com.github.cetonek.bigbiznis.core.jpa.VersionedPersistableEntity

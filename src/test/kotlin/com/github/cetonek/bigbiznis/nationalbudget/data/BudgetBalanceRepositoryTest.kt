@@ -1,7 +1,7 @@
 package com.github.cetonek.bigbiznis.nationalbudget.data
 
 import com.github.cetonek.bigbiznis.DatabaseTest
-import com.github.cetonek.bigbiznis.domain.entity.persisted.BudgetBalance
+import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.BudgetBalance
 import com.github.cetonek.bigbiznis.domain.repository.BudgetBalanceRepository
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.dao.DataIntegrityViolationException
-import org.springframework.orm.jpa.JpaSystemException
 
 
 @DatabaseTest
