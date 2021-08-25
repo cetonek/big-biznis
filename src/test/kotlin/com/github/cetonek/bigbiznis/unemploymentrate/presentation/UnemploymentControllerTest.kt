@@ -3,7 +3,7 @@ package com.github.cetonek.bigbiznis.unemploymentrate.presentation
 import com.github.cetonek.bigbiznis.application.utility.model.Home
 import com.github.cetonek.bigbiznis.application.utility.model.Routing
 import com.github.cetonek.bigbiznis.application.utility.model.Unemployment
-import com.github.cetonek.bigbiznis.domain.entity.persisted.UnemploymentRateEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.UnemploymentRateEntity
 import com.github.cetonek.bigbiznis.domain.service.FetchUnemploymentRateUseCase
 import com.github.cetonek.bigbiznis.utility.breadcrumbs
 import com.github.cetonek.bigbiznis.application.web.mvc.UnemploymentController
@@ -27,7 +27,7 @@ class UnemploymentControllerTest {
     @MockBean
     lateinit var fetchUnemp: FetchUnemploymentRateUseCase
 
-    val quarterlyUnemployment = listOf(UnemploymentRateEntity(1, 2015, 5.3))
+    val quarterlyUnemployment = listOf(UnemploymentRateEntity(2015, 1, 5.3f))
 
     @BeforeEach
     fun setUp() {

@@ -83,7 +83,7 @@ class ComposeEconomyOverviewUseCase(private val exchangeRepository: ExchangeRate
         return Triple(
                 "Nezaměstnanost",
                 MonthAndYear(unemployment.month, unemployment.year),
-                unemployment.unemploymentRatePercent.percentage
+                unemployment.unemploymentPercent.percentage
         )
     }
 
