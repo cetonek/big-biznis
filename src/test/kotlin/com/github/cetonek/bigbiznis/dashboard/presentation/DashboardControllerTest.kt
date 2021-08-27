@@ -5,8 +5,8 @@ import com.github.cetonek.bigbiznis.application.utility.utility.mapToPairs
 import com.github.cetonek.bigbiznis.domain.service.ComposeDashboardUseCase
 import com.github.cetonek.bigbiznis.domain.service.EconomyOverview
 import com.github.cetonek.bigbiznis.domain.service.ExchangeRatesOverview
-import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationRateEntity
-import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationType
+import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.InflationRateEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.InflationType
 import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.PublicDebt
 import com.github.cetonek.bigbiznis.domain.entity.UnemploymentRatePerYearAvg
 import com.github.cetonek.bigbiznis.utility.exampleRate
@@ -38,7 +38,7 @@ class DashboardControllerTest {
 
     val inflation = listOf(
             InflationRateEntity(month = 12, year = 2015, type = InflationType.THIS_YEAR_VS_LAST_YEAR,
-                    valuePercent = 5f)
+                    inflationPercent = 5f)
     )
 
     val publicDebt = listOf(PublicDebt(year = 2015, millionsCrowns = 1564654))

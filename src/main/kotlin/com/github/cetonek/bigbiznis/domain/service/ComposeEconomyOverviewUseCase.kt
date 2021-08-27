@@ -7,7 +7,7 @@ import com.github.cetonek.bigbiznis.domain.repository.ExchangeRateRepository
 import com.github.cetonek.bigbiznis.domain.entity.persisted.toDomain
 import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.GrossDomesticProductType.REAL_2010_PRICES
 import com.github.cetonek.bigbiznis.domain.repository.InflationRateRepository
-import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationType
+import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.InflationType
 import com.github.cetonek.bigbiznis.domain.repository.UnemploymentRateRepository
 import org.springframework.cache.annotation.Cacheable
 import org.springframework.stereotype.Service
@@ -92,7 +92,7 @@ class ComposeEconomyOverviewUseCase(private val exchangeRepository: ExchangeRate
         return Triple(
                 "Inflace",
                 MonthAndYear(inflation.month, inflation.year),
-                inflation.valuePercent.percentage
+                inflation.inflationPercent.percentage
         )
     }
 

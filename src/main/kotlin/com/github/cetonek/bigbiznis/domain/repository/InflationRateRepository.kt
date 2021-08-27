@@ -1,13 +1,12 @@
 package com.github.cetonek.bigbiznis.domain.repository
 
-import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationRateEntity
-import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationRateKey
-import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationType
+import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.InflationRateEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.InflationType
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-interface InflationRateRepository : JpaRepository<InflationRateEntity, InflationRateKey> {
+interface InflationRateRepository : JpaRepository<InflationRateEntity, Long> {
 
     fun findAllByTypeAndMonthEquals(type: InflationType, month: Int): List<InflationRateEntity>
 

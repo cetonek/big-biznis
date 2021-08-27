@@ -9,9 +9,9 @@ import com.github.cetonek.bigbiznis.application.utility.model.OverviewAndGraph
 import com.github.cetonek.bigbiznis.application.utility.model.Routing
 import com.github.cetonek.bigbiznis.application.utility.utility.addBreadcrumbs
 import com.github.cetonek.bigbiznis.application.utility.utility.mapToPairs
-import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationRateEntity
-import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationType
-import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationType.*
+import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.InflationRateEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.InflationType
+import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.InflationType.*
 import com.github.cetonek.bigbiznis.domain.service.FetchInflationRateUseCase
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -44,22 +44,22 @@ class InflationRateController(private val fetchInflation: FetchInflationRateUseC
 
     private fun formatGraphItems(input: List<InflationRateEntity>): List<Pair<Any, Any>> {
         return input.mapToPairs {
-            Pair(monthAndYear.convert(MonthAndYear(it.month, it.year)), it.valuePercent)
+            Pair(monthAndYear.convert(MonthAndYear(it.month, it.year)), it.inflationPercent)
         }
     }
 
     private fun overview(input: List<InflationRateEntity>): List<Triple<*, *, *>> {
         return listOf(
                 triple("Aktuální", input.last()),
-                triple("Nejnižší", input.minByOrNull { it.valuePercent }!!),
-                triple("Nejvyšší", input.maxByOrNull { it.valuePercent }!!)
+                triple("Nejnižší", input.minByOrNull { it.inflationPercent }!!),
+                triple("Nejvyšší", input.maxByOrNull { it.inflationPercent }!!)
         )
     }
 
     private fun triple(title: String, inflationRate: InflationRateEntity): Triple<*, *, *> {
         return Triple(title,
                 MonthAndYear(inflationRate.month, inflationRate.year),
-                inflationRate.valuePercent.percentage
+                inflationRate.inflationPercent.percentage
         )
     }
 

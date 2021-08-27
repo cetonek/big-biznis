@@ -15,7 +15,6 @@ abstract class IdentityGeneratedIdAbstractPersistable<PK : Serializable?> : Pers
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Nullable
     private var id: PK? = null
 
     /*

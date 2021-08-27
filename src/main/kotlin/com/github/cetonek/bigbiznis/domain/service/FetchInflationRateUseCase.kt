@@ -1,7 +1,7 @@
 package com.github.cetonek.bigbiznis.domain.service
 
 import com.github.cetonek.bigbiznis.domain.repository.InflationRateRepository
-import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationType
+import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.InflationType
 import org.springframework.cache.annotation.Cacheable
 import org.springframework.stereotype.Service
 
