@@ -1,8 +1,8 @@
 package com.github.cetonek.bigbiznis.inflation.data
 
 import com.github.cetonek.bigbiznis.DatabaseTest
-import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.InflationRateEntity
-import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.InflationType
+import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationRateEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationType
 import com.github.cetonek.bigbiznis.domain.repository.InflationRateRepository
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach

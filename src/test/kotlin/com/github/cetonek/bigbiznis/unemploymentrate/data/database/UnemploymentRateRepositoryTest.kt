@@ -1,16 +1,14 @@
 package com.github.cetonek.bigbiznis.unemploymentrate.data.database
 
 import com.github.cetonek.bigbiznis.DatabaseTest
-import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.UnemploymentRateEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.UnemploymentRateEntity
 import com.github.cetonek.bigbiznis.domain.repository.UnemploymentRateRepository
 import com.github.cetonek.bigbiznis.domain.entity.UnemploymentRatePerYearAvg
-import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.BudgetBalance
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 import org.springframework.dao.DataIntegrityViolationException
 
 @DatabaseTest

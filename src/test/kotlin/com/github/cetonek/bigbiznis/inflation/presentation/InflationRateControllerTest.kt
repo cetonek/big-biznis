@@ -3,8 +3,8 @@ package com.github.cetonek.bigbiznis.inflation.presentation
 import com.github.cetonek.bigbiznis.application.utility.model.Home
 import com.github.cetonek.bigbiznis.application.utility.model.Inflation
 import com.github.cetonek.bigbiznis.application.utility.model.Routing
-import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.InflationRateEntity
-import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.InflationType.*
+import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationRateEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationType.*
 import com.github.cetonek.bigbiznis.domain.service.FetchInflationRateUseCase
 import com.github.cetonek.bigbiznis.utility.breadcrumbs
 import com.github.cetonek.bigbiznis.application.web.mvc.InflationRateController

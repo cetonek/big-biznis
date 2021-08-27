@@ -2,7 +2,7 @@ package com.github.cetonek.bigbiznis.core
 
 import com.github.cetonek.bigbiznis.TestProfile
 import com.github.cetonek.bigbiznis.domain.service.EvictAllCacheUseCase
-import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.AverageSalary
+import com.github.cetonek.bigbiznis.domain.entity.persisted.AverageSalary
 import com.github.cetonek.bigbiznis.domain.repository.AverageSalaryRepository
 import com.github.cetonek.bigbiznis.domain.service.FetchSalaryUseCase
 import org.junit.jupiter.api.BeforeEach

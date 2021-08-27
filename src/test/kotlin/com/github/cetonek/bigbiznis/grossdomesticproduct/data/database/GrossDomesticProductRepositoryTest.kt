@@ -1,8 +1,8 @@
 package com.github.cetonek.bigbiznis.grossdomesticproduct.data.database
 
 import com.github.cetonek.bigbiznis.DatabaseTest
-import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.GrossDomesticProductEntity
-import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.GrossDomesticProductType.REAL_2010_PRICES
+import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductType.REAL_2010_PRICES
 import com.github.cetonek.bigbiznis.domain.repository.GrossDomesticProductRepository
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach

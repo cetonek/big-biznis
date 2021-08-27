@@ -1,4 +1,4 @@
-package com.github.cetonek.bigbiznis.domain.entity.persisted.refactored
+package com.github.cetonek.bigbiznis.domain.entity.persisted
 
 import com.github.cetonek.bigbiznis.core.jpa.VersionedPersistableEntity
 import javax.persistence.Column

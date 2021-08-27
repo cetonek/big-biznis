@@ -9,7 +9,7 @@ import com.github.cetonek.bigbiznis.application.utility.model.Routing
 import com.github.cetonek.bigbiznis.application.utility.model.Salary
 import com.github.cetonek.bigbiznis.application.utility.utility.addBreadcrumbs
 import com.github.cetonek.bigbiznis.application.utility.utility.mapToPairs
-import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.AverageSalary
+import com.github.cetonek.bigbiznis.domain.entity.persisted.AverageSalary
 import com.github.cetonek.bigbiznis.domain.service.FetchSalaryUseCase
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model

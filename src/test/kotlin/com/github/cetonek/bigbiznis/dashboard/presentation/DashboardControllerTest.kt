@@ -5,9 +5,9 @@ import com.github.cetonek.bigbiznis.application.utility.utility.mapToPairs
 import com.github.cetonek.bigbiznis.domain.service.ComposeDashboardUseCase
 import com.github.cetonek.bigbiznis.domain.service.EconomyOverview
 import com.github.cetonek.bigbiznis.domain.service.ExchangeRatesOverview
-import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.InflationRateEntity
-import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.InflationType
-import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.PublicDebt
+import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationRateEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationType
+import com.github.cetonek.bigbiznis.domain.entity.persisted.PublicDebt
 import com.github.cetonek.bigbiznis.domain.entity.UnemploymentRatePerYearAvg
 import com.github.cetonek.bigbiznis.utility.exampleRate
 import com.github.cetonek.bigbiznis.utility.mockDashboard

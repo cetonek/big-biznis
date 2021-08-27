@@ -9,7 +9,7 @@ import com.github.cetonek.bigbiznis.application.utility.model.Routing
 import com.github.cetonek.bigbiznis.application.utility.model.Unemployment
 import com.github.cetonek.bigbiznis.application.utility.utility.addBreadcrumbs
 import com.github.cetonek.bigbiznis.application.utility.utility.mapToPairs
-import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.UnemploymentRateEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.UnemploymentRateEntity
 import com.github.cetonek.bigbiznis.domain.service.FetchUnemploymentRateUseCase
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model

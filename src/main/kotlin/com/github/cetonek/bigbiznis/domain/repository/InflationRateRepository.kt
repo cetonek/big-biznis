@@ -1,7 +1,7 @@
 package com.github.cetonek.bigbiznis.domain.repository
 
-import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.InflationRateEntity
-import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.InflationType
+import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationRateEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationType
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 

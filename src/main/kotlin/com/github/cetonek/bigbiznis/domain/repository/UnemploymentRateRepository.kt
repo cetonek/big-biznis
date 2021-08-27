@@ -1,6 +1,6 @@
 package com.github.cetonek.bigbiznis.domain.repository
 
-import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.UnemploymentRateEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.UnemploymentRateEntity
 import com.github.cetonek.bigbiznis.domain.entity.UnemploymentRatePerYearAvg
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query

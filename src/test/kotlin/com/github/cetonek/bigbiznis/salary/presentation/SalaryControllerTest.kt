@@ -3,7 +3,7 @@ package com.github.cetonek.bigbiznis.salary.presentation
 import com.github.cetonek.bigbiznis.application.utility.model.Home
 import com.github.cetonek.bigbiznis.application.utility.model.Routing
 import com.github.cetonek.bigbiznis.application.utility.model.Salary
-import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.AverageSalary
+import com.github.cetonek.bigbiznis.domain.entity.persisted.AverageSalary
 import com.github.cetonek.bigbiznis.domain.service.FetchSalaryUseCase
 import com.github.cetonek.bigbiznis.utility.breadcrumbs
 import com.github.cetonek.bigbiznis.application.web.mvc.SalaryController

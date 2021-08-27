@@ -1,7 +1,7 @@
 package com.github.cetonek.bigbiznis.salary.data.database
 
 import com.github.cetonek.bigbiznis.DatabaseTest
-import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.AverageSalary
+import com.github.cetonek.bigbiznis.domain.entity.persisted.AverageSalary
 import com.github.cetonek.bigbiznis.domain.repository.AverageSalaryRepository
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach

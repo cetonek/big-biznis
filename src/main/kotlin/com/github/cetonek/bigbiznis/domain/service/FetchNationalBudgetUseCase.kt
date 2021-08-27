@@ -1,8 +1,8 @@
 package com.github.cetonek.bigbiznis.domain.service
 
-import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.BudgetBalance
+import com.github.cetonek.bigbiznis.domain.entity.persisted.BudgetBalance
 import com.github.cetonek.bigbiznis.domain.repository.BudgetBalanceRepository
-import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.PublicDebt
+import com.github.cetonek.bigbiznis.domain.entity.persisted.PublicDebt
 import com.github.cetonek.bigbiznis.domain.repository.PublicDebtRepository
 import org.springframework.cache.annotation.Cacheable
 import org.springframework.stereotype.Service

@@ -1,7 +1,7 @@
 package com.github.cetonek.bigbiznis.domain.repository
 
-import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.GrossDomesticProductEntity
-import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.GrossDomesticProductType
+import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductType
 import com.github.cetonek.bigbiznis.domain.entity.GrossDomesticProductByYear
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
