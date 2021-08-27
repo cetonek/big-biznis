@@ -3,8 +3,8 @@ package com.github.cetonek.bigbiznis.integration
 import com.github.cetonek.bigbiznis.integration.converter.CsvRootDto
 import com.github.cetonek.bigbiznis.application.utility.date.DateFormatter
 import com.github.cetonek.bigbiznis.application.utility.date.getQuarter
-import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductEntity
-import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductType
+import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.GrossDomesticProductEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.GrossDomesticProductType
 import com.fasterxml.jackson.annotation.JsonFormat
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer

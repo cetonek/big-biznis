@@ -6,8 +6,8 @@ import com.github.cetonek.bigbiznis.application.utility.model.Home
 import com.github.cetonek.bigbiznis.application.utility.model.Routing
 import com.github.cetonek.bigbiznis.application.utility.utility.mapToPairs
 import com.github.cetonek.bigbiznis.application.utility.utility.quarterToRoman
-import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductEntity
-import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductType.*
+import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.GrossDomesticProductEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.GrossDomesticProductType.*
 import com.github.cetonek.bigbiznis.domain.service.FetchGrossDomesticProductUseCase
 import com.github.cetonek.bigbiznis.utility.breadcrumbs
 import com.github.cetonek.bigbiznis.application.web.mvc.GrossDomesticProductController

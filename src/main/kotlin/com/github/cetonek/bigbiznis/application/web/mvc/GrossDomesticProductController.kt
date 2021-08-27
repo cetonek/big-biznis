@@ -9,8 +9,8 @@ import com.github.cetonek.bigbiznis.application.utility.model.Routing
 import com.github.cetonek.bigbiznis.application.utility.utility.addBreadcrumbs
 import com.github.cetonek.bigbiznis.application.utility.utility.mapToPairs
 import com.github.cetonek.bigbiznis.application.utility.utility.quarterToRoman
-import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductEntity
-import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductType.REAL_2010_PRICES
+import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.GrossDomesticProductEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.GrossDomesticProductType.REAL_2010_PRICES
 import com.github.cetonek.bigbiznis.domain.service.FetchGrossDomesticProductUseCase
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model

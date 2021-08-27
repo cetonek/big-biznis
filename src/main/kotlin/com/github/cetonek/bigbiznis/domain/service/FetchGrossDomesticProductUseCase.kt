@@ -1,8 +1,8 @@
 package com.github.cetonek.bigbiznis.domain.service
 
-import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.GrossDomesticProductEntity
 import com.github.cetonek.bigbiznis.domain.repository.GrossDomesticProductRepository
-import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductType
+import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.GrossDomesticProductType
 import com.github.cetonek.bigbiznis.domain.entity.GrossDomesticProductByYear
 import org.springframework.cache.annotation.Cacheable
 import org.springframework.stereotype.Service

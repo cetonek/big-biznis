@@ -3,8 +3,8 @@ package com.github.cetonek.bigbiznis.utility
 import com.github.cetonek.bigbiznis.domain.entity.ExchangeRate
 import com.github.cetonek.bigbiznis.domain.service.ComposeDashboardUseCase
 import com.github.cetonek.bigbiznis.domain.service.FetchExchangeRateUseCase
-import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductEntity
-import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductType
+import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.GrossDomesticProductEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.refactored.GrossDomesticProductType
 import com.github.cetonek.bigbiznis.domain.service.FetchGrossDomesticProductUseCase
 import com.github.cetonek.bigbiznis.domain.service.FetchUnemploymentRateUseCase
 import com.github.cetonek.bigbiznis.domain.entity.UnemploymentRatePerYearAvg
