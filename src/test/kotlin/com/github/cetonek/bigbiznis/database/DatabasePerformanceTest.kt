@@ -73,19 +73,17 @@ class DatabasePerformanceTest {
 
     private fun generateItems(itemsCount: Int): List<ExchangeRateEntity> {
         val startingDate = LocalDate.of(1900, 1, 1)
-        val entity = ExchangeRateEntity(
+        val entity = ExchangeRateEntity.testInstance(
                 startingDate,
                 "USD",
                 "dolar",
                 1,
-                15.57,
+                15.57.toBigDecimal(),
                 "USA")
 
         return (0 until itemsCount)
                 .map {
-                    entity.copy(
-                            date = entity.date.plusDays(it.toLong()),
-                            exchangeRate = Math.random() * 10)
+                    ExchangeRateEntity.testInstance(date = entity.date.plusDays(it.toLong()))
                 }
                 .toList()
 

@@ -1,22 +1,21 @@
 package com.github.cetonek.bigbiznis.domain.repository
 
 import com.github.cetonek.bigbiznis.domain.entity.persisted.ExchangeRateEntity
-import com.github.cetonek.bigbiznis.domain.entity.persisted.ExchangeRateKey
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 import org.springframework.stereotype.Repository
 import java.time.LocalDate
 
 @Repository
-interface ExchangeRateRepository : JpaRepository<ExchangeRateEntity, ExchangeRateKey> {
+interface ExchangeRateRepository : JpaRepository<ExchangeRateEntity, Long> {
 
-    @Query(value = "SELECT * FROM exchange_rate WHERE date = (SELECT MAX(date) FROM exchange_rate)" +
+    @Query(value = "SELECT * FROM exchange_rate WHERE exchange_date = (SELECT MAX(exchange_date) FROM exchange_rate)" +
             " ORDER BY country",
             nativeQuery = true)
     fun findAllRatesFromLastDay(): Collection<ExchangeRateEntity>
 
 
-    @Query(value = "SELECT * FROM exchange_rate WHERE date = (SELECT MAX(date) FROM exchange_rate)" +
+    @Query(value = "SELECT * FROM exchange_rate WHERE exchange_date = (SELECT MAX(exchange_date) FROM exchange_rate)" +
             "AND currency_code IN(?1) ORDER BY country",
             nativeQuery = true)
     fun findAllRatesFromLastDayWhereCodeLike(currencyCodes: List<String>): Collection<ExchangeRateEntity>

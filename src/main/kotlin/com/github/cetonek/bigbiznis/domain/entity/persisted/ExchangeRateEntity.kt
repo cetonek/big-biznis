@@ -1,31 +1,44 @@
 package com.github.cetonek.bigbiznis.domain.entity.persisted
 
+import com.github.cetonek.bigbiznis.core.jpa.VersionedPersistableEntity
 import com.github.cetonek.bigbiznis.domain.entity.ExchangeRate
 import java.io.Serializable
+import java.math.BigDecimal
 import java.time.LocalDate
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.Id
-import javax.persistence.IdClass
+import javax.persistence.*
 
-@Entity(name = "exchange_rate")
-@IdClass(ExchangeRateKey::class)
-data class ExchangeRateEntity(
-        @Column(name = "date") @Id var date: LocalDate = LocalDate.now(),
-        @Column(name = "currency_code") @Id var currencyCode: String = "",
-        @Column(name = "currency_name") var currencyName: String = "",
-        @Column(name = "amount") var amount: Int = 0,
-        @Column(name = "exchange_rate") var exchangeRate: Double = 0.0,
-        @Column(name = "country") var country: String = ""
-)
+@Entity
+@Table(name = "exchange_rate")
+class ExchangeRateEntity(
 
-val ExchangeRateEntity.key
-    get() = ExchangeRateKey(this.date, this.currencyCode)
+        @Column(name = "exchange_date")
+        var date: LocalDate,
 
+        var currencyCode: String,
 
-data class ExchangeRateKey(
-        var date: LocalDate = LocalDate.now(),
-        var currencyCode: String = "") : Serializable
+        var currencyName: String,
+
+        var amount: Int,
+
+        var exchangeRate: BigDecimal,
+
+        var country: String
+
+) : VersionedPersistableEntity<Long>() {
+
+    companion object {
+
+        fun testInstance(date: LocalDate = LocalDate.now(),
+                         currencyCode: String = "USD",
+                         currencyName: String = "Dolar",
+                         amount: Int = 1,
+                         exchangeRate: BigDecimal = BigDecimal.ZERO,
+                         country: String = "United States"
+        ) = ExchangeRateEntity(date, currencyCode, currencyName, amount, exchangeRate, country)
+
+    }
+
+}
 
 fun ExchangeRate.toEntity(): ExchangeRateEntity {
     return ExchangeRateEntity(
@@ -33,7 +46,7 @@ fun ExchangeRate.toEntity(): ExchangeRateEntity {
             currencyCode = this.currencyCode,
             currencyName = this.currencyName,
             amount = this.amount,
-            exchangeRate = this.exchangeRate,
+            exchangeRate = BigDecimal.valueOf(this.exchangeRate),
             country = this.country)
 }
 
@@ -43,6 +56,6 @@ fun ExchangeRateEntity.toDomain(): ExchangeRate {
             currencyCode = this.currencyCode,
             currencyName = this.currencyName,
             amount = this.amount,
-            exchangeRate = this.exchangeRate,
+            exchangeRate = this.exchangeRate.toDouble(),
             country = this.country)
 }
