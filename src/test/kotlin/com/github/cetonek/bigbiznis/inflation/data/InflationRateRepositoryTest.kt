@@ -1,7 +1,7 @@
 package com.github.cetonek.bigbiznis.inflation.data
 
 import com.github.cetonek.bigbiznis.DatabaseTest
-import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationRateEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationRate
 import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationType
 import com.github.cetonek.bigbiznis.domain.repository.InflationRateRepository
 import org.assertj.core.api.Assertions.assertThat
@@ -26,7 +26,7 @@ class InflationRateRepositoryTest {
     fun `test saving an entity`() {
         // given
         // when
-        val entityToSave = InflationRateEntity(
+        val entityToSave = InflationRate(
                 year = 2015,
                 type = InflationType.THIS_MONTH_VS_PREVIOUS_YEARS_MONTH,
                 inflationPercent = 4.5f,
@@ -40,7 +40,7 @@ class InflationRateRepositoryTest {
 
     @Test
     fun `test unique constraint `() {
-        val firstEntity = InflationRateEntity(
+        val firstEntity = InflationRate(
                 year = 2015,
                 type = InflationType.THIS_MONTH_VS_PREVIOUS_YEARS_MONTH,
                 inflationPercent = 4.5f,

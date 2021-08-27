@@ -5,7 +5,7 @@ import com.github.cetonek.bigbiznis.application.utility.utility.mapToPairs
 import com.github.cetonek.bigbiznis.domain.service.ComposeDashboardUseCase
 import com.github.cetonek.bigbiznis.domain.service.EconomyOverview
 import com.github.cetonek.bigbiznis.domain.service.ExchangeRatesOverview
-import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationRateEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationRate
 import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationType
 import com.github.cetonek.bigbiznis.domain.entity.persisted.PublicDebt
 import com.github.cetonek.bigbiznis.domain.entity.UnemploymentRatePerYearAvg
@@ -37,7 +37,7 @@ class DashboardControllerTest {
     val unemp = listOf(UnemploymentRatePerYearAvg(2015, unemploymentRatePercent = 5.7))
 
     val inflation = listOf(
-            InflationRateEntity(month = 12, year = 2015, type = InflationType.THIS_YEAR_VS_LAST_YEAR,
+            InflationRate(month = 12, year = 2015, type = InflationType.THIS_YEAR_VS_LAST_YEAR,
                     inflationPercent = 5f)
     )
 

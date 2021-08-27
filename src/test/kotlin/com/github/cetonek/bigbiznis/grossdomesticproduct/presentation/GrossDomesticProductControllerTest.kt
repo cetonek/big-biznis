@@ -6,7 +6,7 @@ import com.github.cetonek.bigbiznis.application.utility.model.Home
 import com.github.cetonek.bigbiznis.application.utility.model.Routing
 import com.github.cetonek.bigbiznis.application.utility.utility.mapToPairs
 import com.github.cetonek.bigbiznis.application.utility.utility.quarterToRoman
-import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProduct
 import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductType.*
 import com.github.cetonek.bigbiznis.domain.service.FetchGrossDomesticProductUseCase
 import com.github.cetonek.bigbiznis.utility.breadcrumbs
@@ -32,7 +32,7 @@ class GrossDomesticProductControllerTest {
     lateinit var fetchGdp: FetchGrossDomesticProductUseCase
 
     val realGdp = listOf(
-            GrossDomesticProductEntity(
+            GrossDomesticProduct(
                     year = 2020,
                     type = REAL_2010_PRICES,
                     gdpMillionsCrowns = 464654,
@@ -41,7 +41,7 @@ class GrossDomesticProductControllerTest {
     )
 
     val realChanges = listOf(
-            OutputPercentageData(2015, 4.0, GrossDomesticProductEntity(
+            OutputPercentageData(2015, 4.0, GrossDomesticProduct(
                     year = 2015, quarter = 4, gdpMillionsCrowns = 54564, type = REAL_2010_PRICES)
             )
     )

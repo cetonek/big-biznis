@@ -6,7 +6,7 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "unemployment_rate")
-class UnemploymentRateEntity(
+class UnemploymentRate(
 
         var year: Int,
 

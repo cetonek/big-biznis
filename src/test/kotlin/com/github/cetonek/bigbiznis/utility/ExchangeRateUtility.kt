@@ -3,7 +3,7 @@ package com.github.cetonek.bigbiznis.utility
 import com.github.cetonek.bigbiznis.domain.entity.ExchangeRate
 import com.github.cetonek.bigbiznis.domain.service.ComposeDashboardUseCase
 import com.github.cetonek.bigbiznis.domain.service.FetchExchangeRateUseCase
-import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProduct
 import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductType
 import com.github.cetonek.bigbiznis.domain.service.FetchGrossDomesticProductUseCase
 import com.github.cetonek.bigbiznis.domain.service.FetchUnemploymentRateUseCase
@@ -22,7 +22,7 @@ val exampleRate = ExchangeRate(date = LocalDate.now(),
         exchangeRate = 25.5,
         country = "USA")
 
-fun FetchGrossDomesticProductUseCase.mockGDP(type: GrossDomesticProductType, gdps: List<GrossDomesticProductEntity>) {
+fun FetchGrossDomesticProductUseCase.mockGDP(type: GrossDomesticProductType, gdps: List<GrossDomesticProduct>) {
     given(this.fetchGdp(type)).willReturn(gdps)
 }
 

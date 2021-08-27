@@ -2,7 +2,7 @@ package com.github.cetonek.bigbiznis.integration
 
 import com.github.cetonek.bigbiznis.integration.converter.CsvRootDto
 import com.github.cetonek.bigbiznis.application.utility.date.DateFormatter
-import com.github.cetonek.bigbiznis.domain.entity.persisted.UnemploymentRateEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.UnemploymentRate
 import com.fasterxml.jackson.annotation.JsonFormat
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer
@@ -23,8 +23,8 @@ class UnemploymentRateDto {
 
 }
 
-fun UnemploymentRateDto.toEntity(): UnemploymentRateEntity {
-    return UnemploymentRateEntity(
+fun UnemploymentRateDto.toEntity(): UnemploymentRate {
+    return UnemploymentRate(
             year = this.date.year,
             month = this.date.month.value,
             unemploymentPercent = (this.unemploymentRate

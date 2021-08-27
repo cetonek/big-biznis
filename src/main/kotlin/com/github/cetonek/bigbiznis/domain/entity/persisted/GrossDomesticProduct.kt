@@ -6,7 +6,7 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "gross_domestic_product")
-class GrossDomesticProductEntity(
+class GrossDomesticProduct(
 
         var year: Int,
 
@@ -24,10 +24,10 @@ class GrossDomesticProductEntity(
         return Pair(year, gdpMillionsCrowns)
     }
 
-    fun copy(quarter: Int) = GrossDomesticProductEntity(year = this.year,
+    fun copy(quarter: Int) = GrossDomesticProduct(year = this.year,
             quarter = quarter, type = this.type, gdpMillionsCrowns = this.gdpMillionsCrowns)
 
-    fun copy(quarter: Int, year: Int) = GrossDomesticProductEntity(year = year,
+    fun copy(quarter: Int, year: Int) = GrossDomesticProduct(year = year,
             quarter = quarter, type = this.type, gdpMillionsCrowns = this.gdpMillionsCrowns)
 
 

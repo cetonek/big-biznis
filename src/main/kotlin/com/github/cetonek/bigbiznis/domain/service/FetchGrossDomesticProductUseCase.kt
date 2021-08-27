@@ -1,6 +1,6 @@
 package com.github.cetonek.bigbiznis.domain.service
 
-import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProduct
 import com.github.cetonek.bigbiznis.domain.repository.GrossDomesticProductRepository
 import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductType
 import com.github.cetonek.bigbiznis.domain.entity.GrossDomesticProductByYear
@@ -26,7 +26,7 @@ class FetchGrossDomesticProductUseCase(private val repository: GrossDomesticProd
 
     @Cacheable("FetchGrossDomesticProductUseCase::fetchPercentChangesPerQuarter")
     fun fetchPercentChangesPerQuarter(type: GrossDomesticProductType = GrossDomesticProductType.REAL_2010_PRICES)
-            : List<OutputPercentageData<GrossDomesticProductEntity>> {
+            : List<OutputPercentageData<GrossDomesticProduct>> {
         return repository.getAllByTypeEquals(type)
                 .mapIndexed { index, gdp -> Pair(index, gdp) }
                 .map { InputData(it.first.toLong(), it.second.gdpMillionsCrowns, it.second) }

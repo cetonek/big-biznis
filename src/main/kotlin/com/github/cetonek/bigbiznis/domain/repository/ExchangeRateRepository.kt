@@ -1,24 +1,24 @@
 package com.github.cetonek.bigbiznis.domain.repository
 
-import com.github.cetonek.bigbiznis.domain.entity.persisted.ExchangeRateEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.ExchangeRate
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 import org.springframework.stereotype.Repository
 import java.time.LocalDate
 
 @Repository
-interface ExchangeRateRepository : JpaRepository<ExchangeRateEntity, Long> {
+interface ExchangeRateRepository : JpaRepository<ExchangeRate, Long> {
 
     @Query(value = "SELECT * FROM exchange_rate WHERE exchange_date = (SELECT MAX(exchange_date) FROM exchange_rate)" +
             " ORDER BY country",
             nativeQuery = true)
-    fun findAllRatesFromLastDay(): Collection<ExchangeRateEntity>
+    fun findAllRatesFromLastDay(): Collection<ExchangeRate>
 
 
     @Query(value = "SELECT * FROM exchange_rate WHERE exchange_date = (SELECT MAX(exchange_date) FROM exchange_rate)" +
             "AND currency_code IN(?1) ORDER BY country",
             nativeQuery = true)
-    fun findAllRatesFromLastDayWhereCodeLike(currencyCodes: List<String>): Collection<ExchangeRateEntity>
+    fun findAllRatesFromLastDayWhereCodeLike(currencyCodes: List<String>): Collection<ExchangeRate>
 
     @Query(value = "select * from (\n" +
             "    select * from(\n" +
@@ -34,9 +34,9 @@ interface ExchangeRateRepository : JpaRepository<ExchangeRateEntity, Long> {
             nativeQuery = true)
     fun findAllWeekdaysThatAreMissing(startingDate: LocalDate): Collection<String>
 
-    fun findFirstByOrderByDate(): ExchangeRateEntity
+    fun findFirstByOrderByDate(): ExchangeRate
 
-    fun findExchangeRateEntityByCurrencyCodeOrderByDate(currencyCode: String): List<ExchangeRateEntity>
+    fun findExchangeRateEntityByCurrencyCodeOrderByDate(currencyCode: String): List<ExchangeRate>
 
 
 }

@@ -6,7 +6,7 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "inflation_rate")
-class InflationRateEntity(
+class InflationRate(
 
         var month: Int,
 
@@ -23,7 +23,7 @@ class InflationRateEntity(
     override fun convertToPair() = Pair(year, inflationPercent)
 
     fun copy(type: InflationType = this.type) =
-            InflationRateEntity(month = this.month,
+            InflationRate(month = this.month,
             year = this.year, type = type, inflationPercent = this.inflationPercent)
 
 }

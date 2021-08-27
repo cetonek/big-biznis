@@ -1,18 +1,16 @@
 package com.github.cetonek.bigbiznis.domain.service
 
-import com.github.cetonek.bigbiznis.integration.CNBClient
+import com.github.cetonek.bigbiznis.application.configuration.ExchangeRateConfiguration
 import com.github.cetonek.bigbiznis.application.utility.getLogger
+import com.github.cetonek.bigbiznis.domain.repository.ExchangeRateRepository
+import com.github.cetonek.bigbiznis.integration.CNBClient
 import com.github.cetonek.bigbiznis.integration.ExchangeRateRootDto
 import com.github.cetonek.bigbiznis.integration.toDomain
-import com.github.cetonek.bigbiznis.domain.repository.ExchangeRateRepository
-import com.github.cetonek.bigbiznis.domain.entity.persisted.toEntity
-import com.github.cetonek.bigbiznis.application.configuration.ExchangeRateConfiguration
 import org.springframework.stereotype.Service
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
 import java.util.concurrent.atomic.AtomicInteger
-import kotlin.streams.toList
 
 @Service
 class SynchronizeExchangeRateUseCase(
@@ -51,7 +49,6 @@ class SynchronizeExchangeRateUseCase(
                 .peek { count.incrementAndGet() }
                 .map { it.toDomain() }
                 .flatMap { it.stream() }
-                .map { it.toEntity() }
                 .toList()
                 .also { exchangeRepository.saveAll(it) }
                 .also {

@@ -9,7 +9,7 @@ import com.github.cetonek.bigbiznis.application.utility.model.OverviewAndGraph
 import com.github.cetonek.bigbiznis.application.utility.model.Routing
 import com.github.cetonek.bigbiznis.application.utility.utility.addBreadcrumbs
 import com.github.cetonek.bigbiznis.application.utility.utility.mapToPairs
-import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationRateEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationRate
 import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationType
 import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationType.*
 import com.github.cetonek.bigbiznis.domain.service.FetchInflationRateUseCase
@@ -42,13 +42,13 @@ class InflationRateController(private val fetchInflation: FetchInflationRateUseC
                 OverviewAndGraph(overview(inflation), formatGraphItems(inflation)))
     }
 
-    private fun formatGraphItems(input: List<InflationRateEntity>): List<Pair<Any, Any>> {
+    private fun formatGraphItems(input: List<InflationRate>): List<Pair<Any, Any>> {
         return input.mapToPairs {
             Pair(monthAndYear.convert(MonthAndYear(it.month, it.year)), it.inflationPercent)
         }
     }
 
-    private fun overview(input: List<InflationRateEntity>): List<Triple<*, *, *>> {
+    private fun overview(input: List<InflationRate>): List<Triple<*, *, *>> {
         return listOf(
                 triple("Aktuální", input.last()),
                 triple("Nejnižší", input.minByOrNull { it.inflationPercent }!!),
@@ -56,7 +56,7 @@ class InflationRateController(private val fetchInflation: FetchInflationRateUseC
         )
     }
 
-    private fun triple(title: String, inflationRate: InflationRateEntity): Triple<*, *, *> {
+    private fun triple(title: String, inflationRate: InflationRate): Triple<*, *, *> {
         return Triple(title,
                 MonthAndYear(inflationRate.month, inflationRate.year),
                 inflationRate.inflationPercent.percentage

@@ -3,7 +3,7 @@ package com.github.cetonek.bigbiznis.inflation.presentation
 import com.github.cetonek.bigbiznis.application.utility.model.Home
 import com.github.cetonek.bigbiznis.application.utility.model.Inflation
 import com.github.cetonek.bigbiznis.application.utility.model.Routing
-import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationRateEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationRate
 import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationType.*
 import com.github.cetonek.bigbiznis.domain.service.FetchInflationRateUseCase
 import com.github.cetonek.bigbiznis.utility.breadcrumbs
@@ -29,7 +29,7 @@ class InflationRateControllerTest {
     @MockBean
     lateinit var fetchInflation: FetchInflationRateUseCase
 
-    val inflation = InflationRateEntity(
+    val inflation = InflationRate(
             month = 12,
             year = 2015,
             type = THIS_YEAR_VS_LAST_YEAR,

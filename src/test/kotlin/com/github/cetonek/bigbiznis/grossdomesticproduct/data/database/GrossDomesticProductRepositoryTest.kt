@@ -1,7 +1,7 @@
 package com.github.cetonek.bigbiznis.grossdomesticproduct.data.database
 
 import com.github.cetonek.bigbiznis.DatabaseTest
-import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProduct
 import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductType.REAL_2010_PRICES
 import com.github.cetonek.bigbiznis.domain.repository.GrossDomesticProductRepository
 import org.assertj.core.api.Assertions.assertThat
@@ -24,7 +24,7 @@ class GrossDomesticProductRepositoryTest {
     fun `test saving an entity`() {
         // given
         // when
-        val entityToSave = GrossDomesticProductEntity(year = 2016, quarter = 4, gdpMillionsCrowns = 456465464, type = REAL_2010_PRICES)
+        val entityToSave = GrossDomesticProduct(year = 2016, quarter = 4, gdpMillionsCrowns = 456465464, type = REAL_2010_PRICES)
         repository.save(entityToSave)
         // then
         val foundRate = repository.findById(entityToSave.id!!)
@@ -35,7 +35,7 @@ class GrossDomesticProductRepositoryTest {
     @Test
     fun `test getAllSummedByYearHavingAllFourQuarters`() {
         // given
-        val first2016 = GrossDomesticProductEntity(
+        val first2016 = GrossDomesticProduct(
                 year = 2016,
                 quarter = 1,
                 gdpMillionsCrowns = 1,
@@ -58,7 +58,7 @@ class GrossDomesticProductRepositoryTest {
     @Test
     fun `test default ordering is as expected - year asc, quarter asc`() {
         // given
-        val first2016 = GrossDomesticProductEntity(
+        val first2016 = GrossDomesticProduct(
                 year = 2016,
                 quarter = 1,
                 gdpMillionsCrowns = 1,
