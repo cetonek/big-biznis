@@ -1,21 +1,37 @@
 package com.github.cetonek.bigbiznis.domain.entity.persisted
 
 import com.github.cetonek.bigbiznis.application.utility.utility.PairConvertable
+import com.github.cetonek.bigbiznis.core.jpa.VersionedPersistableEntity
 import java.io.Serializable
 import javax.persistence.*
 
-@Entity(name = "gross_domestic_product")
-@IdClass(GrossDomesticProductKey::class)
-data class GrossDomesticProductEntity(
-        @Column(name = "year") @Id var year: Int = 0,
-        @Column(name = "quarter") @Id var quarter: Int = 0,
-        @Column(name = "type") @Id @Enumerated(EnumType.STRING)
+@Entity
+@Table(name = "gross_domestic_product")
+class GrossDomesticProductEntity(
+
+        var year: Int,
+
+        var quarter: Int,
+
+        @Column(name = "gdp_type")
+        @Enumerated(EnumType.STRING)
         var type: GrossDomesticProductType = GrossDomesticProductType.NOMINAL,
-        @Column(name = "value_millions_crowns") var gdpMillionsCrowns: Long = 0
-) : PairConvertable {
+
+        var gdpMillionsCrowns: Long
+
+) : VersionedPersistableEntity<Long>(), PairConvertable {
+
     override fun convertToPair(): Pair<Any, Any> {
         return Pair(year, gdpMillionsCrowns)
     }
+
+    fun copy(quarter: Int) = GrossDomesticProductEntity(year = this.year,
+            quarter = quarter, type = this.type, gdpMillionsCrowns = this.gdpMillionsCrowns)
+
+    fun copy(quarter: Int, year: Int) = GrossDomesticProductEntity(year = year,
+            quarter = quarter, type = this.type, gdpMillionsCrowns = this.gdpMillionsCrowns)
+
+
 }
 
 enum class GrossDomesticProductType {
@@ -23,11 +39,3 @@ enum class GrossDomesticProductType {
     REAL_2010_PRICES
 }
 
-data class GrossDomesticProductKey(
-        var year: Int = 0,
-        var quarter: Int = 0,
-        var type: GrossDomesticProductType = GrossDomesticProductType.NOMINAL
-) : Serializable
-
-val GrossDomesticProductEntity.key
-    get() = GrossDomesticProductKey(this.year, this.quarter, this.type)
