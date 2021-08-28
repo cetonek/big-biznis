@@ -1,5 +1,6 @@
 package com.github.cetonek.bigbiznis.domain.repository
 
+import com.github.cetonek.bigbiznis.core.db.BigBiznisRepository
 import com.github.cetonek.bigbiznis.domain.entity.LocalDateOnly
 import com.github.cetonek.bigbiznis.domain.entity.persisted.ExchangeRate
 import org.springframework.data.jpa.repository.JpaRepository
@@ -10,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional
 import java.time.LocalDate
 
 @Repository
-interface ExchangeRateRepository : JpaRepository<ExchangeRate, Long> {
+interface ExchangeRateRepository : BigBiznisRepository<ExchangeRate, Long> {
 
     @Query(value = "SELECT * FROM exchange_rate WHERE exchange_date = (SELECT MAX(exchange_date) FROM exchange_rate)" +
             " ORDER BY country",
