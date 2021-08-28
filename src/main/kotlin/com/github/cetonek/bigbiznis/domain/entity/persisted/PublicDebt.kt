@@ -11,10 +11,11 @@ import javax.persistence.Table
 @Entity
 @Table(name = "public_debt")
 class PublicDebt(
-        val year: Int,
+
+        var year: Int,
 
         @Column(name = "debt_millions_crowns")
-        val millionsCrowns: Long
+        var millionsCrowns: Long
         
 ) : VersionedPersistableEntity<Long>(), PairConvertable {
 

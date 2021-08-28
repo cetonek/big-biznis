@@ -8,8 +8,12 @@ import javax.persistence.Table
 @Entity
 @Table(name = "average_salary")
 class AverageSalary(
-        val quarter: Int,
-        val year: Int,
-        @Column(name = "salary_crowns") val crowns: Int
+
+        var quarter: Int,
+
+        var year: Int,
+
+        @Column(name = "salary_crowns") var crowns: Int
+
 ) : VersionedPersistableEntity<Long>()
 

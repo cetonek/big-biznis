@@ -11,8 +11,11 @@ import javax.persistence.Table
 @Entity
 @Table(name = "budget_balance")
 class BudgetBalance(
-        val year: Int,
-        @Column(name = "balance_millions_crowns") val millionsCrowns: Long
+
+        var year: Int,
+
+        @Column(name = "balance_millions_crowns") var millionsCrowns: Long
+
 ) : VersionedPersistableEntity<Long>(), PairConvertable {
 
     override fun convertToPair() = Pair(year, millionsCrowns)
