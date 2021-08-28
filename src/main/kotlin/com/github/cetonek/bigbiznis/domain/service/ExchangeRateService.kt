@@ -3,9 +3,9 @@ package com.github.cetonek.bigbiznis.domain.service
 import com.github.cetonek.bigbiznis.application.configuration.ExchangeRateConfiguration
 import com.github.cetonek.bigbiznis.application.utility.getLogger
 import com.github.cetonek.bigbiznis.domain.repository.ExchangeRateRepository
-import com.github.cetonek.bigbiznis.integration.CNBClient
-import com.github.cetonek.bigbiznis.integration.ExchangeRateRootDto
-import com.github.cetonek.bigbiznis.integration.toDomain
+import com.github.cetonek.bigbiznis.integration.cnb.CNBClient
+import com.github.cetonek.bigbiznis.integration.cnb.ExchangeRateRootDto
+import com.github.cetonek.bigbiznis.integration.cnb.toDomain
 import org.springframework.stereotype.Service
 import java.time.LocalDate
 import java.util.*

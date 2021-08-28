@@ -59,6 +59,8 @@ dependencies {
     implementation("org.webjars:momentjs:$momentJs")
     runtimeOnly("org.webjars:font-awesome:$fontAwesome")
     runtimeOnly("org.webjars:jquery:$jQuery")
+    // utility
+    implementation("commons-io:commons-io:2.11.0")
     // test
     testImplementation("io.projectreactor:reactor-test")
     testImplementation("org.testcontainers:junit-jupiter")

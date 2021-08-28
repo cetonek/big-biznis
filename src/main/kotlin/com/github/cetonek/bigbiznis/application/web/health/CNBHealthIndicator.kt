@@ -1,6 +1,6 @@
 package com.github.cetonek.bigbiznis.application.web.health
 
-import com.github.cetonek.bigbiznis.integration.CNBClient
+import com.github.cetonek.bigbiznis.integration.cnb.CNBClient
 import org.springframework.boot.actuate.health.Health
 import org.springframework.boot.actuate.health.HealthIndicator
 import org.springframework.stereotype.Component
