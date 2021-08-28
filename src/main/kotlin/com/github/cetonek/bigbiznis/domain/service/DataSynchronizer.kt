@@ -4,9 +4,9 @@ import org.springframework.context.annotation.Profile
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component
 
-@Profile("!test")
+@Profile("!junit")
 @Component
-class DataSynchronizer(private val syncExchange: SynchronizeExchangeRateUseCase,
+class DataSynchronizer(private val syncExchange: ExchangeRateService,
                        private val syncSalary: SynchronizeSalaryUseCase,
                        private val syncUnemployment: SynchronizeUnemploymentRateUseCase,
                        private val syncRealGdp: SynchronizeRealGrossDomesticProduct,
@@ -23,11 +23,11 @@ class DataSynchronizer(private val syncExchange: SynchronizeExchangeRateUseCase,
 
 //    @ExecuteAfterStart
     @Scheduled(cron = "0 0/5 12 ? * MON-FRI") // 12:05, 12:10, 12:15 ... 12:55 everyday (cnb publishes rates at 12:30 utc)
-    fun dailyExchangeRateSync() = syncExchange.executeForToday().also { evictCache() }
+    fun dailyExchangeRateSync() = syncExchange.synchronizeTodaysExchangeRates().also { evictCache() }
 
-//    @ExecuteAfterStart
+    @ExecuteAfterStart
     @Scheduled(cron = EVERY_FIRST_DAY_OF_MONTH)
-    fun largeExchangeRatesSync() = syncExchange.executeForAllMissingDays().also { evictCache() }
+    fun largeExchangeRatesSync() = syncExchange.synchronizeAllExchangeRates().also { evictCache() }
 
 //    @ExecuteAfterStart
     @Scheduled(cron = EVERYDAY_AT_MIDNIGHT)

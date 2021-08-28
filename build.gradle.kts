@@ -29,6 +29,8 @@ val fontAwesome = "5.12.0"
 val momentJs = "2.29.1"
 val jQuery = "3.6.0"
 
+extra["testcontainersVersion"] = "1.15.3"
+
 dependencies {
     // starters
     implementation("org.springframework.boot:spring-boot-starter-web")
@@ -59,12 +61,19 @@ dependencies {
     runtimeOnly("org.webjars:jquery:$jQuery")
     // test
     testImplementation("io.projectreactor:reactor-test")
+    testImplementation("org.testcontainers:junit-jupiter")
+    testImplementation("org.testcontainers:postgresql")
 }
 
+dependencyManagement {
+    imports {
+        mavenBom("org.testcontainers:testcontainers-bom:${property("testcontainersVersion")}")
+    }
+}
 
 tasks.withType<KotlinCompile> {
     kotlinOptions {
-        freeCompilerArgs = listOf("-Xjsr305=strict")
+        freeCompilerArgs = listOf("-Xjsr305=strict", "-Xjvm-default=all-compatibility")
         jvmTarget = "16"
     }
 }

@@ -18,7 +18,7 @@ class ExchangeRateDataInfoActuatorEndpoint(private val repository: ExchangeRateR
     @ReadOperation
     fun getInfo(): ExchangeRateDataInfo {
         val totalRows = repository.count()
-        val daysWithMissingRates = repository.findAllWeekdaysThatAreMissing(config.largeSyncStartingDate)
+        val daysWithMissingRates = repository.findAllWeekDaysThatAreMissing(config.largeSyncStartingDate)
                 .size
 
         val oldestRecordDate = repository.findFirstByOrderByDate().date

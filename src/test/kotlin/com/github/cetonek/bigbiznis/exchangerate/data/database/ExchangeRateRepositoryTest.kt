@@ -1,12 +1,17 @@
 package com.github.cetonek.bigbiznis.exchangerate.data.database
 
 import com.github.cetonek.bigbiznis.DatabaseTest
+import com.github.cetonek.bigbiznis.TestProfile
 import com.github.cetonek.bigbiznis.domain.entity.persisted.ExchangeRate
 import com.github.cetonek.bigbiznis.domain.repository.ExchangeRateRepository
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
+import org.springframework.transaction.annotation.Transactional
+import java.time.DayOfWeek
 import java.time.LocalDate
 
 @DatabaseTest
@@ -15,11 +20,19 @@ class ExchangeRateRepositoryTest {
     @Autowired
     lateinit var repository: ExchangeRateRepository
 
+    final val monday = LocalDate.of(2021, 8, 23)
+    val tuesday = monday.plusDays(1)
+    val wednesday = monday.plusDays(2)
+    val thrursday = monday.plusDays(3)
+    val friday = monday.plusDays(4)
+    val saturday = monday.plusDays(5)
+    val sunday = monday.plusDays(6)
+
     @BeforeEach
     fun setUp() {
         repository.deleteAllInBatch()
+        assertThat(monday.dayOfWeek).isEqualTo(DayOfWeek.MONDAY)
     }
-
 
     @Test
     fun `entity is saved with correct date`() {
@@ -34,7 +47,6 @@ class ExchangeRateRepositoryTest {
         assertThat(saved).isEqualTo(usdEntity)
         // then
         assertThat(repository.findById(usdEntity.id!!).get()).isEqualTo(usdEntity)
-
     }
 
     @Test
@@ -58,6 +70,44 @@ class ExchangeRateRepositoryTest {
         // then
         assertThat(result.size).isEqualTo(1)
         assertThat(result.first()).isEqualTo(usdToday)
+    }
+
+    @Test
+    fun `repository finds weekdays that are not in database - empty database`() {
+        repository.deleteAllInBatch()
+
+        assertThat(monday.dayOfWeek).isEqualTo(DayOfWeek.MONDAY)
+
+        val result = repository.findAllWeekDaysThatAreMissing(monday, sunday)
+
+        assertThat(result.size).isEqualTo(5)
+        assertThat(result.map { it.i }).containsExactlyInAnyOrder(monday, tuesday, wednesday, thrursday, friday)
+    }
+
+    @Test
+    fun `repository finds weekdays that are not in database - with days in db`() {
+        repository.saveAll(listOf(
+                monday, tuesday, friday, saturday, sunday)
+                .map { ExchangeRate.testInstance(date = it) }
+        )
+
+        val result = repository.findAllWeekDaysThatAreMissing(monday, sunday)
+
+        assertThat(result.size).isEqualTo(2)
+        assertThat(result.map { it.i }).containsExactlyInAnyOrder(wednesday, thrursday)
+    }
+
+    @Test
+    fun `repository finds weekdays that are not in database - with days in db and range from friday to sunday`() {
+        repository.saveAll(listOf(
+                monday, tuesday, wednesday, saturday)
+                .map { ExchangeRate.testInstance(date = it) }
+        )
+
+        val result = repository.findAllWeekDaysThatAreMissing(friday, sunday)
+
+        assertThat(result.size).isEqualTo(1)
+        assertThat(result.map { it.i }).containsExactlyInAnyOrder(friday)
     }
 
 }

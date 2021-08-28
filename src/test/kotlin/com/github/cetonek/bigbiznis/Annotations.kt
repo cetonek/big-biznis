@@ -1,10 +1,11 @@
 package com.github.cetonek.bigbiznis
 
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.ActiveProfiles
 
-@SpringBootTest
+@DataJpaTest
 @TestProfile
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 annotation class DatabaseTest
@@ -12,5 +13,5 @@ annotation class DatabaseTest
 @ActiveProfiles("dev")
 annotation class DevProfile
 
-@ActiveProfiles("test")
+@ActiveProfiles("junit")
 annotation class TestProfile

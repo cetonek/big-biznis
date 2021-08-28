@@ -11,17 +11,5 @@ services:
     restart: always
     ports:
     - 8081:5432
-  postgres-test:
-    image: postgres:13
-    environment:
-      POSTGRES_DB: bigbiznis-test
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-    volumes:
-      - swag-volume:/var/lib/postgresql
-    restart: always
-    ports:
-      - 8082:5432
 volumes:
   yolo-volume:
-  swag-volume:
