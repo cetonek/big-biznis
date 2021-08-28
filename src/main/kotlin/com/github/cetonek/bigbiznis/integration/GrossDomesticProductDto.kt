@@ -3,7 +3,7 @@ package com.github.cetonek.bigbiznis.integration
 import com.github.cetonek.bigbiznis.integration.converter.CsvRootDto
 import com.github.cetonek.bigbiznis.application.utility.date.DateFormatter
 import com.github.cetonek.bigbiznis.application.utility.date.getQuarter
-import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProduct
 import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductType
 import com.fasterxml.jackson.annotation.JsonFormat
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize
@@ -27,8 +27,8 @@ class GrossDomesticProductDto {
 
 }
 
-fun GrossDomesticProductDto.toEntity(type: GrossDomesticProductType): GrossDomesticProductEntity {
-    return GrossDomesticProductEntity(
+fun GrossDomesticProductDto.toEntity(type: GrossDomesticProductType): GrossDomesticProduct {
+    return GrossDomesticProduct(
             year = this.date.year,
             quarter = this.date.getQuarter(),
             type = type,

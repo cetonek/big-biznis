@@ -1,13 +1,15 @@
 package com.github.cetonek.bigbiznis.unemploymentrate.data.database
 
 import com.github.cetonek.bigbiznis.DatabaseTest
-import com.github.cetonek.bigbiznis.domain.entity.persisted.UnemploymentRateEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.UnemploymentRate
 import com.github.cetonek.bigbiznis.domain.repository.UnemploymentRateRepository
 import com.github.cetonek.bigbiznis.domain.entity.UnemploymentRatePerYearAvg
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.dao.DataIntegrityViolationException
 
 @DatabaseTest
 class UnemploymentRateRepositoryTest {
@@ -21,17 +23,33 @@ class UnemploymentRateRepositoryTest {
     }
 
     @Test
-    fun `test getting all yearly gdps`() {
+    fun `entity can be saved and retrieved`() {
+        val savedEntity = repository.save(UnemploymentRate(2020, 12, 10f))
+
+        val foundEntity = repository.findById(savedEntity.id!!)
+
+        assertThat(foundEntity).isNotNull
+    }
+
+    @Test
+    fun `entity with negative unemployment cannot be saved`() {
+        assertThrows<DataIntegrityViolationException> {
+            repository.save(UnemploymentRate(2020, 12, -10f))
+        }
+    }
+
+    @Test
+    fun `test getting yearly averaged unemployment`() {
         // given
 
-        val firstQuater2016 = UnemploymentRateEntity(month = 1, year = 2016, unemploymentRatePercent = 5.0)
-        val secondQuater2016 = UnemploymentRateEntity(month = 2, year = 2016, unemploymentRatePercent = 10.0)
-        val thirdQuarter2016 = UnemploymentRateEntity(month = 3, year = 2016, unemploymentRatePercent = 15.0)
+        val firstQuater2016 = UnemploymentRate(year = 2016, month = 1, unemploymentPercent = 5.0F)
+        val secondQuater2016 = UnemploymentRate(year = 2016, month = 2, unemploymentPercent = 10.0f)
+        val thirdQuarter2016 = UnemploymentRate(year = 2016, month = 3, unemploymentPercent = 15.0f)
 
-        val firstQuater2019 = UnemploymentRateEntity(month = 1, year = 2019, unemploymentRatePercent = 25.0)
+        val firstQuater2019 = UnemploymentRate(year = 2019, month = 1, unemploymentPercent = 25.0f)
 
-        val thirdQuarter2020 = UnemploymentRateEntity(month = 3, year = 2020, unemploymentRatePercent = 50.0)
-        val fourthQuarter2020 = UnemploymentRateEntity(month = 4, year = 2020, unemploymentRatePercent = 25.0)
+        val thirdQuarter2020 = UnemploymentRate(year = 2020, month = 3, unemploymentPercent = 50.0f)
+        val fourthQuarter2020 = UnemploymentRate(year = 2020, month = 4, unemploymentPercent = 25.0f)
 
         repository.saveAll(listOf(
                 firstQuater2016, secondQuater2016, thirdQuarter2016,
@@ -58,14 +76,14 @@ class UnemploymentRateRepositoryTest {
     @Test
     fun `test getting latest unemployment`() {
         // given
-        val firstQuater2016 = UnemploymentRateEntity(month = 1, year = 2016, unemploymentRatePercent = 5.0)
-        val secondQuater2016 = UnemploymentRateEntity(month = 2, year = 2016, unemploymentRatePercent = 10.0)
-        val thirdQuarter2016 = UnemploymentRateEntity(month = 3, year = 2016, unemploymentRatePercent = 15.0)
+        val firstQuater2016 = UnemploymentRate(year = 2016, month = 1, unemploymentPercent = 5.0f)
+        val secondQuater2016 = UnemploymentRate(year = 2016, month = 2, unemploymentPercent = 10.0f)
+        val thirdQuarter2016 = UnemploymentRate(year = 2016, month = 3, unemploymentPercent = 15.0f)
 
-        val firstQuater2019 = UnemploymentRateEntity(month = 1, year = 2019, unemploymentRatePercent = 25.0)
+        val firstQuater2019 = UnemploymentRate(year = 2019, month = 1, unemploymentPercent = 25.0f)
 
-        val thirdQuarter2020 = UnemploymentRateEntity(month = 3, year = 2020, unemploymentRatePercent = 50.0)
-        val fourthQuarter2020 = UnemploymentRateEntity(month = 4, year = 2020, unemploymentRatePercent = 25.0)
+        val thirdQuarter2020 = UnemploymentRate(year = 2020, month = 3, unemploymentPercent = 50.0f)
+        val fourthQuarter2020 = UnemploymentRate(year = 2020, month = 4, unemploymentPercent = 25.0f)
 
         repository.saveAll(listOf(
                 firstQuater2016, secondQuater2016, thirdQuarter2016,

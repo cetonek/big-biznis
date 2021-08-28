@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement
-import com.github.cetonek.bigbiznis.domain.entity.ExchangeRate
+import com.github.cetonek.bigbiznis.domain.entity.persisted.ExchangeRate
 import java.time.LocalDate
 
 @JacksonXmlRootElement(localName = "kurzy")
@@ -76,5 +76,11 @@ class ExchangeRateDto {
 }
 
 fun ExchangeRateDto.toDomain(date: LocalDate): ExchangeRate {
-    return ExchangeRate(date = date, currencyCode = this.currencyCode, currencyName = this.currencyName, amount = this.amount, country = this.country, exchangeRate = this.rate)
+    return ExchangeRate(date = date,
+            currencyCode = this.currencyCode,
+            currencyName = this.currencyName,
+            amount = this.amount,
+            country = this.country,
+            exchangeRate = this.rate.toBigDecimal()
+    )
 }

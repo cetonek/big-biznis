@@ -4,7 +4,7 @@ import com.github.cetonek.bigbiznis.application.utility.model.Routing
 import com.github.cetonek.bigbiznis.domain.service.FetchExchangeRateUseCase
 import com.github.cetonek.bigbiznis.utility.exampleRate
 import com.github.cetonek.bigbiznis.application.web.mvc.ExchangeRateController
-import com.github.cetonek.bigbiznis.domain.entity.ExchangeRate
+import com.github.cetonek.bigbiznis.domain.entity.persisted.ExchangeRate
 import org.junit.jupiter.api.Test
 import org.mockito.BDDMockito.given
 import org.springframework.beans.factory.annotation.Autowired
@@ -30,7 +30,8 @@ class ExchangeRateControllerTest {
     fun `GET kurzy USD returns model with usd currencies only`() {
         // given
         val currencyCode = "USD"
-        val expectedRates = listOf(ExchangeRate(LocalDate.now(), currencyCode, "dolar", 1, 22.5, "USA"))
+        val expectedRates = listOf(ExchangeRate(LocalDate.now(),
+                currencyCode, "dolar", 1, 22.5.toBigDecimal(), "USA"))
 
         given(useCaseFetch.fetchByCurrencyOrderByDate(currencyCode)).willReturn(expectedRates)
         // when

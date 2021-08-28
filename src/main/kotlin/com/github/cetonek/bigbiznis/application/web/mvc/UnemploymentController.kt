@@ -9,7 +9,7 @@ import com.github.cetonek.bigbiznis.application.utility.model.Routing
 import com.github.cetonek.bigbiznis.application.utility.model.Unemployment
 import com.github.cetonek.bigbiznis.application.utility.utility.addBreadcrumbs
 import com.github.cetonek.bigbiznis.application.utility.utility.mapToPairs
-import com.github.cetonek.bigbiznis.domain.entity.persisted.UnemploymentRateEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.UnemploymentRate
 import com.github.cetonek.bigbiznis.domain.service.FetchUnemploymentRateUseCase
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -32,7 +32,7 @@ class UnemploymentController(private val fetchUnemp: FetchUnemploymentRateUseCas
         model.addAttribute("unemployment", OverviewAndGraph(
                 graph = unemployment.mapToPairs {
                     Pair(monthAndYearConverter.convert(MonthAndYear(it.month, it.year)),
-                            it.unemploymentRatePercent)
+                            it.unemploymentPercent)
                 },
                 overview = overview(unemployment)
         ))
@@ -40,18 +40,18 @@ class UnemploymentController(private val fetchUnemp: FetchUnemploymentRateUseCas
         return template
     }
 
-    private fun overview(input: List<UnemploymentRateEntity>): List<Triple<*, *, *>> {
+    private fun overview(input: List<UnemploymentRate>): List<Triple<*, *, *>> {
         return listOf(
                 triple("Aktuální", input.last()),
-                triple("Nejnižší", input.minByOrNull { it.unemploymentRatePercent }!!),
-                triple("Nejvyšší", input.maxByOrNull { it.unemploymentRatePercent }!!)
+                triple("Nejnižší", input.minByOrNull { it.unemploymentPercent }!!),
+                triple("Nejvyšší", input.maxByOrNull { it.unemploymentPercent }!!)
         )
     }
 
-    private fun triple(title: String, unemployment: UnemploymentRateEntity): Triple<*, *, *> {
+    private fun triple(title: String, unemployment: UnemploymentRate): Triple<*, *, *> {
         return Triple(title,
                 MonthAndYear(unemployment.month, unemployment.year),
-                unemployment.unemploymentRatePercent.percentage
+                unemployment.unemploymentPercent.percentage
         )
     }
 

@@ -6,6 +6,7 @@ plugins {
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
     kotlin("jvm") version "1.5.21"
     kotlin("plugin.spring") version "1.5.21"
+    kotlin("plugin.jpa") version "1.5.21"
 }
 
 repositories {
@@ -48,7 +49,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     // database
     implementation("org.flywaydb:flyway-core")
-    runtimeOnly("mysql:mysql-connector-java")
+    runtimeOnly("org.postgresql:postgresql")
     // tools
     runtimeOnly("org.springframework.boot:spring-boot-devtools")
     // frontend

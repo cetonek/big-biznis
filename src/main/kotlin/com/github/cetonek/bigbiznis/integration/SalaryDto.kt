@@ -3,7 +3,7 @@ package com.github.cetonek.bigbiznis.integration
 import com.github.cetonek.bigbiznis.integration.converter.CsvRootDto
 import com.github.cetonek.bigbiznis.application.utility.date.DateFormatter
 import com.github.cetonek.bigbiznis.application.utility.date.getQuarter
-import com.github.cetonek.bigbiznis.domain.entity.persisted.SalaryEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.AverageSalary
 import com.fasterxml.jackson.annotation.JsonFormat
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer
@@ -28,10 +28,10 @@ class SalaryDto {
 
 class SallaryRootDto : CsvRootDto<SalaryDto>()
 
-fun SalaryDto.toEntity(): SalaryEntity {
-    return SalaryEntity(
+fun SalaryDto.toEntity(): AverageSalary {
+    return AverageSalary(
             quarter = this.date.getQuarter(),
             year = this.date.year,
-            salaryCrowns = this.salaryCrowns
+            crowns = this.salaryCrowns
                     ?: throw IllegalStateException("salary cannot be null at this point but it is null!"))
 }

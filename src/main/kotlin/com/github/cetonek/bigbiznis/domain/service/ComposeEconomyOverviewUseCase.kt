@@ -2,9 +2,8 @@ package com.github.cetonek.bigbiznis.domain.service
 
 import com.github.cetonek.bigbiznis.application.configuration.EconomyOverviewConfiguration
 import com.github.cetonek.bigbiznis.application.utility.formatting.*
-import com.github.cetonek.bigbiznis.domain.entity.ExchangeRate
+import com.github.cetonek.bigbiznis.domain.entity.persisted.ExchangeRate
 import com.github.cetonek.bigbiznis.domain.repository.ExchangeRateRepository
-import com.github.cetonek.bigbiznis.domain.entity.persisted.toDomain
 import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductType.REAL_2010_PRICES
 import com.github.cetonek.bigbiznis.domain.repository.InflationRateRepository
 import com.github.cetonek.bigbiznis.domain.entity.persisted.InflationType
@@ -27,7 +26,6 @@ class ComposeEconomyOverviewUseCase(private val exchangeRepository: ExchangeRate
     fun execute(): EconomyOverview {
 
         val rates = exchangeRepository.findAllRatesFromLastDayWhereCodeLike(configuration.exchangeRates)
-                .map { it.toDomain() }
         val ratesDate = rates.first().date
 
         return EconomyOverview(
@@ -74,7 +72,7 @@ class ComposeEconomyOverviewUseCase(private val exchangeRepository: ExchangeRate
         return Triple(
                 "Průměrná mzda",
                 QuarterAndYear(averageSalary.quarter, averageSalary.year),
-                averageSalary.salaryCrowns.czechCrowns
+                averageSalary.crowns.czechCrowns
         )
     }
 
@@ -83,7 +81,7 @@ class ComposeEconomyOverviewUseCase(private val exchangeRepository: ExchangeRate
         return Triple(
                 "Nezaměstnanost",
                 MonthAndYear(unemployment.month, unemployment.year),
-                unemployment.unemploymentRatePercent.percentage
+                unemployment.unemploymentPercent.percentage
         )
     }
 
@@ -92,7 +90,7 @@ class ComposeEconomyOverviewUseCase(private val exchangeRepository: ExchangeRate
         return Triple(
                 "Inflace",
                 MonthAndYear(inflation.month, inflation.year),
-                inflation.valuePercent.percentage
+                inflation.inflationPercent.percentage
         )
     }
 

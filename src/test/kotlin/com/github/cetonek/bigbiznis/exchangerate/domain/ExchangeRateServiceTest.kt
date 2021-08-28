@@ -1,7 +1,6 @@
 package com.github.cetonek.bigbiznis.exchangerate.domain
 
 import com.github.cetonek.bigbiznis.domain.repository.ExchangeRateRepository
-import com.github.cetonek.bigbiznis.domain.entity.persisted.toEntity
 import com.github.cetonek.bigbiznis.domain.service.FetchExchangeRateUseCase
 import com.github.cetonek.bigbiznis.domain.service.SynchronizeExchangeRateUseCase
 import com.github.cetonek.bigbiznis.utility.exampleRate
@@ -32,7 +31,7 @@ class ExchangeRateServiceTest {
     @Test
     fun `service fetches latest exchange rates`() {
         // given
-        given(repository.findAllRatesFromLastDay()).willReturn(listOf(exampleRate.toEntity()))
+        given(repository.findAllRatesFromLastDay()).willReturn(listOf(exampleRate))
         // when
         val result = useCaseFetch.fetchLatestRates()
         // then

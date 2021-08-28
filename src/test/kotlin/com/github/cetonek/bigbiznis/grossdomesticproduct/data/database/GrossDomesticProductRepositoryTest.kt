@@ -1,9 +1,8 @@
 package com.github.cetonek.bigbiznis.grossdomesticproduct.data.database
 
 import com.github.cetonek.bigbiznis.DatabaseTest
-import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProduct
 import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductType.REAL_2010_PRICES
-import com.github.cetonek.bigbiznis.domain.entity.persisted.key
 import com.github.cetonek.bigbiznis.domain.repository.GrossDomesticProductRepository
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
@@ -25,10 +24,10 @@ class GrossDomesticProductRepositoryTest {
     fun `test saving an entity`() {
         // given
         // when
-        val entityToSave = GrossDomesticProductEntity(year = 2016, quarter = 4, gdpMillionsCrowns = 456465464, type = REAL_2010_PRICES)
+        val entityToSave = GrossDomesticProduct(year = 2016, quarter = 4, gdpMillionsCrowns = 456465464, type = REAL_2010_PRICES)
         repository.save(entityToSave)
         // then
-        val foundRate = repository.findById(entityToSave.key)
+        val foundRate = repository.findById(entityToSave.id!!)
         assertThat(foundRate.isPresent).isTrue()
         assertThat(foundRate.get()).isEqualTo(entityToSave)
     }
@@ -36,7 +35,7 @@ class GrossDomesticProductRepositoryTest {
     @Test
     fun `test getAllSummedByYearHavingAllFourQuarters`() {
         // given
-        val first2016 = GrossDomesticProductEntity(
+        val first2016 = GrossDomesticProduct(
                 year = 2016,
                 quarter = 1,
                 gdpMillionsCrowns = 1,
@@ -47,8 +46,7 @@ class GrossDomesticProductRepositoryTest {
 
         val first2017 = first2016.copy(quarter = 1, year = 2017)
 
-        repository.saveAll(listOf(first2016, second2016, third2016, fourth2016,
-                first2017))
+        repository.saveAll(listOf(first2016, second2016, third2016, fourth2016, first2017))
         // when
         val result = repository.getAllSummedByYearHavingAllFourQuarters(REAL_2010_PRICES)
         // then
@@ -60,7 +58,7 @@ class GrossDomesticProductRepositoryTest {
     @Test
     fun `test default ordering is as expected - year asc, quarter asc`() {
         // given
-        val first2016 = GrossDomesticProductEntity(
+        val first2016 = GrossDomesticProduct(
                 year = 2016,
                 quarter = 1,
                 gdpMillionsCrowns = 1,
@@ -83,7 +81,6 @@ class GrossDomesticProductRepositoryTest {
         assertThat(result[2]).isEqualTo(third2016)
         assertThat(result[3]).isEqualTo(fourth2016)
         assertThat(result[4]).isEqualTo(first2017)
-
     }
 
 

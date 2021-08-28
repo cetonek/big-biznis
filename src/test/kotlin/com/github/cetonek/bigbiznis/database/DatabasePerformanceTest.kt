@@ -1,7 +1,7 @@
 package com.github.cetonek.bigbiznis.database
 
 import com.github.cetonek.bigbiznis.DatabaseTest
-import com.github.cetonek.bigbiznis.domain.entity.persisted.ExchangeRateEntity
+import com.github.cetonek.bigbiznis.domain.entity.persisted.ExchangeRate
 import com.github.cetonek.bigbiznis.domain.repository.ExchangeRateRepository
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Disabled
@@ -71,21 +71,19 @@ class DatabasePerformanceTest {
     }
 
 
-    private fun generateItems(itemsCount: Int): List<ExchangeRateEntity> {
+    private fun generateItems(itemsCount: Int): List<ExchangeRate> {
         val startingDate = LocalDate.of(1900, 1, 1)
-        val entity = ExchangeRateEntity(
+        val entity = ExchangeRate.testInstance(
                 startingDate,
                 "USD",
                 "dolar",
                 1,
-                15.57,
+                15.57.toBigDecimal(),
                 "USA")
 
         return (0 until itemsCount)
                 .map {
-                    entity.copy(
-                            date = entity.date.plusDays(it.toLong()),
-                            exchangeRate = Math.random() * 10)
+                    ExchangeRate.testInstance(date = entity.date.plusDays(it.toLong()))
                 }
                 .toList()
 
