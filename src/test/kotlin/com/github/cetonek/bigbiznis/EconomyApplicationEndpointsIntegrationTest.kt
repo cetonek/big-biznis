@@ -50,7 +50,7 @@ class EconomyApplicationEndpointsIntegrationTest {
 
     private fun `test endpoint returns 200`(endpoint: String) {
         val url = "$baseUrl$endpoint"
-        println("testing: $url what the fuck")
+        println("testing: $url")
         val entity = restTemplate.getForEntity<String>(url)
         assertThat(entity.statusCode).isEqualTo(HttpStatus.OK)
     }

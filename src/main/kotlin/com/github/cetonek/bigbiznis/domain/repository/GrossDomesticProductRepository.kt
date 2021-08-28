@@ -1,5 +1,6 @@
 package com.github.cetonek.bigbiznis.domain.repository
 
+import com.github.cetonek.bigbiznis.core.db.BigBiznisRepository
 import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProduct
 import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductType
 import com.github.cetonek.bigbiznis.domain.entity.GrossDomesticProductByYear
@@ -9,7 +10,7 @@ import org.springframework.data.repository.query.Param
 import org.springframework.stereotype.Repository
 
 @Repository
-interface GrossDomesticProductRepository : JpaRepository<GrossDomesticProduct, Long> {
+interface GrossDomesticProductRepository : BigBiznisRepository<GrossDomesticProduct, Long> {
 
     fun getAllByTypeEquals(type: GrossDomesticProductType): List<GrossDomesticProduct>
 

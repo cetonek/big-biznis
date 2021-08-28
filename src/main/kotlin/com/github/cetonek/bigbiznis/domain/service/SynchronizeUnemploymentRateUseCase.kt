@@ -1,7 +1,7 @@
 package com.github.cetonek.bigbiznis.domain.service
 
-import com.github.cetonek.bigbiznis.integration.CNBClient
-import com.github.cetonek.bigbiznis.integration.toEntity
+import com.github.cetonek.bigbiznis.integration.cnb.CNBClient
+import com.github.cetonek.bigbiznis.integration.cnb.toEntity
 import com.github.cetonek.bigbiznis.domain.repository.UnemploymentRateRepository
 import org.springframework.stereotype.Service
 import java.time.LocalDate
