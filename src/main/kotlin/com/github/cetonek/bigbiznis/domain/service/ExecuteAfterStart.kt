@@ -1,7 +1,6 @@
 package com.github.cetonek.bigbiznis.domain.service
 
-import org.springframework.boot.context.event.ApplicationReadyEvent
-import org.springframework.context.event.EventListener
+import org.springframework.scheduling.annotation.Scheduled
 
-@EventListener(ApplicationReadyEvent::class)
+@Scheduled(fixedDelay = Long.MAX_VALUE)
 annotation class ExecuteAfterStart

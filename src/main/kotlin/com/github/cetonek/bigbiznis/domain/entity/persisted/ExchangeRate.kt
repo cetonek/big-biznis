@@ -24,6 +24,14 @@ class ExchangeRate(
 
 ) : VersionedPersistableEntity<Long>() {
 
+    fun updateByOther(other: ExchangeRate) : ExchangeRate {
+        currencyName = other.currencyName
+        amount = other.amount
+        exchangeRate = other.exchangeRate
+        country = other.country
+        return this
+    }
+
     companion object {
 
         fun testInstance(date: LocalDate = LocalDate.now(),

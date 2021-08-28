@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service
 
 @Service
 class FetchExchangeRateUseCase(private val repository: ExchangeRateRepository,
-                               private val synchronizeExchangeRate: SynchronizeExchangeRateUseCase
+                               private val synchronizeExchangeRate: ExchangeRateService
 ) {
 
     @Cacheable("FetchExchangeRateUseCase::fetchLatestRates")
     fun fetchLatestRates(): Collection<ExchangeRate> {
         val latestRates = repository.findAllRatesFromLastDay()
         latestRates.ifEmpty {
-            synchronizeExchangeRate.executeForToday()
+            synchronizeExchangeRate.synchronizeTodaysExchangeRates()
             repository.findAllRatesFromLastDay()
         }
         return latestRates

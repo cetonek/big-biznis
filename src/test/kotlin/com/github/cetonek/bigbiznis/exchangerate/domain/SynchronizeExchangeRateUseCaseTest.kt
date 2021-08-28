@@ -7,7 +7,7 @@ import com.github.cetonek.bigbiznis.integration.ExchangeRateRootDto
 import com.github.cetonek.bigbiznis.integration.ExchangeRateTableDto
 import com.github.cetonek.bigbiznis.integration.toDomain
 import com.github.cetonek.bigbiznis.domain.repository.ExchangeRateRepository
-import com.github.cetonek.bigbiznis.domain.service.SynchronizeExchangeRateUseCase
+import com.github.cetonek.bigbiznis.domain.service.ExchangeRateService
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
@@ -31,11 +31,11 @@ class SynchronizeExchangeRateUseCaseTest {
     @Mock
     lateinit var configuration: ExchangeRateConfiguration
 
-    lateinit var useCase: SynchronizeExchangeRateUseCase
+    lateinit var useCase: ExchangeRateService
 
     @BeforeEach
     fun setUp() {
-        useCase = SynchronizeExchangeRateUseCase(cnbClient, repository, configuration)
+        useCase = ExchangeRateService(cnbClient, repository, configuration)
     }
 
     @Test
@@ -68,7 +68,7 @@ class SynchronizeExchangeRateUseCaseTest {
 
         given(cnbClient.fetchExchangeRateForDay(LocalDate.now())).willReturn(ResponseEntity.ok(returnedDto))
         // when
-        useCase.executeForToday()
+        useCase.synchronizeTodaysExchangeRates()
         // then
         verify(cnbClient, times(1)).fetchExchangeRateForDay(LocalDate.now())
         verify(repository, times(1)).saveAll(listOf(expectedSaveEntity))
