@@ -33,27 +33,27 @@ class SynchronizeExchangeRateUseCase(
     }
 
     private fun executeSynchForDates(dates: Collection<LocalDate>) {
-        val syncStart = System.currentTimeMillis()
-        val count = AtomicInteger(0)
-        dates
-                .parallelStream()
-                .map {
-                    try {
-                        Optional.ofNullable(cnbClient.fetchExchangeRateForDay(it).body)
-                    } catch (e: Exception) {
-                        Optional.empty<ExchangeRateRootDto>()
-                    }
-                }
-                .filter { it.isPresent }
-                .map { it.get() }
-                .peek { count.incrementAndGet() }
-                .map { it.toDomain() }
-                .flatMap { it.stream() }
-                .toList()
-                .also { exchangeRepository.saveAll(it) }
-                .also {
-                    val executionTime = System.currentTimeMillis() - syncStart
-                    LOGGER.info("Syncd ${count}/${dates.size} exchange rate days in ${executionTime}ms")
-                }
+//        val syncStart = System.currentTimeMillis()
+//        val count = AtomicInteger(0)
+//        dates
+//                .parallelStream()
+//                .map {
+//                    try {
+//                        Optional.ofNullable(cnbClient.fetchExchangeRateForDay(it).body)
+//                    } catch (e: Exception) {
+//                        Optional.empty<ExchangeRateRootDto>()
+//                    }
+//                }
+//                .filter { it.isPresent }
+//                .map { it.get() }
+//                .peek { count.incrementAndGet() }
+//                .map { it.toDomain() }
+//                .flatMap { it.stream() }
+//                .toList()
+//                .also { exchangeRepository.saveAll(it) }
+//                .also {
+//                    val executionTime = System.currentTimeMillis() - syncStart
+//                    LOGGER.info("Syncd ${count}/${dates.size} exchange rate days in ${executionTime}ms")
+//                }
     }
 }
