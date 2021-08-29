@@ -1,6 +1,6 @@
 package com.github.cetonek.bigbiznis.domain.service
 
-import com.github.cetonek.bigbiznis.application.configuration.EconomyOverviewConfiguration
+import com.github.cetonek.bigbiznis.application.configuration.DashboardConfiguration
 import com.github.cetonek.bigbiznis.application.utility.formatting.*
 import com.github.cetonek.bigbiznis.domain.entity.persisted.ExchangeRate
 import com.github.cetonek.bigbiznis.domain.repository.ExchangeRateRepository
@@ -17,7 +17,7 @@ class ComposeEconomyOverviewUseCase(private val exchangeRepository: ExchangeRate
                                     private val inflationRepository: InflationRateRepository,
                                     private val unemploymentRepository: UnemploymentRateRepository,
                                     private val fetchGdp: FetchGrossDomesticProductUseCase,
-                                    private val configuration: EconomyOverviewConfiguration,
+                                    private val configuration: DashboardConfiguration,
                                     private val fetchNationalBudget: FetchNationalBudgetUseCase,
                                     private val fetchSalaryUseCase: FetchSalaryUseCase
 ) {

@@ -1,7 +1,8 @@
 package com.github.cetonek.bigbiznis.domain.service
 
+import com.github.cetonek.bigbiznis.application.configuration.BigBiznisConfiguration
 import com.github.cetonek.bigbiznis.application.configuration.ExchangeRateConfiguration
-import com.github.cetonek.bigbiznis.integration.cnb.CNBClient
+import com.github.cetonek.bigbiznis.integration.cnb.CzechNationalBankClient
 import com.github.cetonek.bigbiznis.integration.cnb.ExchangeRateDto
 import com.github.cetonek.bigbiznis.integration.cnb.ExchangeRateRootDto
 import com.github.cetonek.bigbiznis.integration.cnb.ExchangeRateTableDto
@@ -22,13 +23,13 @@ import java.time.LocalDate
 class SynchronizeExchangeRateUseCaseTest {
 
     @Mock
-    lateinit var cnbClient: CNBClient
+    lateinit var cnbClient: CzechNationalBankClient
 
     @Mock
     lateinit var repository: ExchangeRateRepository
 
     @Mock
-    lateinit var configuration: ExchangeRateConfiguration
+    lateinit var configuration: BigBiznisConfiguration
 
     lateinit var useCase: ExchangeRateService
 

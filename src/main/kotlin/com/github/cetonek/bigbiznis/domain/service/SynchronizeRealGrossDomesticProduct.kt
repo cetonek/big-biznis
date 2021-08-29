@@ -1,6 +1,6 @@
 package com.github.cetonek.bigbiznis.domain.service
 
-import com.github.cetonek.bigbiznis.integration.cnb.CNBClient
+import com.github.cetonek.bigbiznis.integration.cnb.CzechNationalBankClient
 import com.github.cetonek.bigbiznis.integration.cnb.toEntity
 import com.github.cetonek.bigbiznis.domain.repository.GrossDomesticProductRepository
 import com.github.cetonek.bigbiznis.domain.entity.persisted.GrossDomesticProductType
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service
 import java.time.LocalDate
 
 @Service
-class SynchronizeRealGrossDomesticProduct(private val api: CNBClient,
+class SynchronizeRealGrossDomesticProduct(private val api: CzechNationalBankClient,
                                           private val repository: GrossDomesticProductRepository
 ) {
 

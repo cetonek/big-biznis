@@ -16,10 +16,4 @@ fun main(args: Array<String>) {
 @EnableScheduling
 @EnableCaching
 @SpringBootApplication
-class BigBiznisApplication {
-
-    @PostConstruct
-    fun init() {
-        TimeZone.setDefault(TimeZone.getTimeZone("UTC"))
-    }
-}
+class BigBiznisApplication

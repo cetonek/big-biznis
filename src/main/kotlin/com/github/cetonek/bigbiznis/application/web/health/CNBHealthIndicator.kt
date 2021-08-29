@@ -1,12 +1,12 @@
 package com.github.cetonek.bigbiznis.application.web.health
 
-import com.github.cetonek.bigbiznis.integration.cnb.CNBClient
+import com.github.cetonek.bigbiznis.integration.cnb.CzechNationalBankClient
 import org.springframework.boot.actuate.health.Health
 import org.springframework.boot.actuate.health.HealthIndicator
 import org.springframework.stereotype.Component
 
 @Component
-class CNBHealthIndicator(private val client: CNBClient) : HealthIndicator {
+class CNBHealthIndicator(private val client: CzechNationalBankClient) : HealthIndicator {
 
     override fun health(): Health {
         return try {

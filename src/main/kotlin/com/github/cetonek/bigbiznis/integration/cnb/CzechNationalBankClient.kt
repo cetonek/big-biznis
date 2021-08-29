@@ -12,7 +12,7 @@ import org.springframework.web.util.UriComponentsBuilder
 import java.time.LocalDate
 
 @Component
-class CNBClient(restTemplateBuilder: RestTemplateBuilder) {
+class CzechNationalBankClient(restTemplateBuilder: RestTemplateBuilder) {
 
     private val LOGGER = getLogger(this::class.java)
 
