@@ -17,7 +17,7 @@ import java.time.LocalDate
 class CNBClientIntegrationTest {
 
     @Autowired
-    lateinit var client: CNBClient
+    lateinit var client: CzechNationalBankClient
 
     @RepeatedTest(value = 10)
     @Test

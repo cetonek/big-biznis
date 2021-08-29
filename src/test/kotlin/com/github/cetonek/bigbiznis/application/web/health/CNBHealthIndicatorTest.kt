@@ -1,6 +1,6 @@
 package com.github.cetonek.bigbiznis.application.web.health
 
-import com.github.cetonek.bigbiznis.integration.cnb.CNBClient
+import com.github.cetonek.bigbiznis.integration.cnb.CzechNationalBankClient
 import com.github.cetonek.bigbiznis.integration.cnb.ExchangeRateRootDto
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
@@ -19,7 +19,7 @@ import org.springframework.web.client.ResourceAccessException
 class CNBHealthIndicatorTest {
 
     @Mock
-    lateinit var client: CNBClient
+    lateinit var client: CzechNationalBankClient
 
     lateinit var indicator: CNBHealthIndicator
 

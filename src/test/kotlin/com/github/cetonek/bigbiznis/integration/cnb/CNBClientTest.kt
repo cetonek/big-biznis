@@ -7,14 +7,13 @@ import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.client.RestClientTest
 import org.springframework.context.annotation.Import
-import org.springframework.core.io.ClassPathResource
 import org.springframework.http.MediaType
 import org.springframework.test.web.client.MockRestServiceServer
 import org.springframework.test.web.client.match.MockRestRequestMatchers.requestTo
 import org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess
 import java.time.LocalDate
 
-@RestClientTest(CNBClient::class)
+@RestClientTest(CzechNationalBankClient::class)
 @Import(TestConfiguration::class)
 class CNBClientTest {
 
@@ -24,7 +23,7 @@ class CNBClientTest {
     lateinit var mockRestServer: MockRestServiceServer
 
     @Autowired
-    lateinit var client: CNBClient
+    lateinit var client: CzechNationalBankClient
 
     @Autowired
     lateinit var fileReader: FileReader
